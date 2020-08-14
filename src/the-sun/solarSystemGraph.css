@@ -1,0 +1,40 @@
+      #sun {
+        stroke: #666;
+        fill: orange;
+      }
+
+      .orbit {
+        stroke: #ccc;
+        stroke-width: 2px;
+        fill: transparent;
+      }
+
+      .moon_cluster
+      {
+        stroke: #ccc;
+        stroke-width: 2px;
+        fill: transparent;
+
+      }
+      .planet {
+        stroke: #666;
+        fill: #fff;
+      }
+
+      .moon {
+        stroke: #ccc;
+        fill: #fff;
+      }
+
+      .responsiveText{
+        max-width: 200px;
+        width: 200px;
+      }
+      .myText {
+        font-size: 1.3em;
+        fill: gray;
+        width: 10%;
+        max-width: 10%;
+        display: block;
+      }
+      

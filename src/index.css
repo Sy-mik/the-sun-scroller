@@ -1,12 +1,26 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+html {
+  font:112.5%/1.666 'Inter UI','Roboto',sans-serif;
+  /* font-family: "Inter", "system-ui"; */
 }
 
+h1{
+  /* padding-bottom: 21.666rem; */
+  line-height: 1.1;
+}
+
+/* @supports (font-variation-settings: normal) {
+  html {
+    font-family: "Inter var", "system-ui";
+  }
+} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
