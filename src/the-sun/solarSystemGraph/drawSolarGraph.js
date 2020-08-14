@@ -339,7 +339,7 @@ export default function DrawSolarGraph({
 
       svg
         .append("text")
-        .text(`${planet.realSizeR}km from the sun`)
+        .text(`${planet.realSizeR / 1000000} million km from the sun`)
         .attr("x", w / 2)
         .attr("y", getRealScale(planet.realSizeR) + 40)
         .attr("text-anchor", "middle")
@@ -349,13 +349,27 @@ export default function DrawSolarGraph({
         .attr("color", "lightgray");
       svg
         .append("text")
-        .text(`${planet.realSizer}km diamater`)
+        .text(
+          `${new Intl.NumberFormat().format(
+            planet.realSizer
+          )}km diamater (1/${parseInt(sunSize / planet.realSizer)} of the sun)`
+        )
         .attr("x", w / 2)
         .attr("y", getRealScale(planet.realSizeR) + 2 * 40)
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("fill", "lightgray")
         .attr("color", "lightgray");
+
+      // svg
+      //   .append("text")
+      //   .text(`1/${parseInt(sunSize / planet.realSizer)} of the sun`)
+      //   .attr("x", w / 2)
+      //   .attr("y", getRealScale(planet.realSizeR) + 2 * 60)
+      //   .attr("text-anchor", "middle")
+      //   .attr("font-size", 20)
+      //   .attr("fill", "lightgray")
+      //   .attr("color", "lightgray");
     });
 
     // svg
@@ -403,7 +417,7 @@ export default function DrawSolarGraph({
 
     svg
       .append("text")
-      .text(`${sunSize}km diameter`)
+      .text(`${new Intl.NumberFormat().format(sunSize)}km diameter`)
       .attr("x", w / 2)
       .attr("y", realScale(planets[0].realSizeR) / 1.3 + 50) //1.5)
       .attr("text-anchor", "middle")
@@ -418,7 +432,7 @@ export default function DrawSolarGraph({
     svg
       .append("text")
       .attr("x", w / 2)
-      .attr("y", getRealScale(planets[2].realSizeR) + 3 * 50) //1.5)
+      .attr("y", getRealScale(planets[2].realSizeR) + 3 * 55) //1.5)
       .attr("text-anchor", "middle")
       .attr("font-size", 30)
       .attr("fill", "darkgray")
@@ -430,7 +444,7 @@ export default function DrawSolarGraph({
     svg
       .append("text")
       .attr("x", w / 2)
-      .attr("y", getRealScale(planets[3].realSizeR) + 3 * 50) //1.5)
+      .attr("y", getRealScale(planets[3].realSizeR) + 3 * 55) //1.5)
       .attr("text-anchor", "middle")
       .attr("font-size", 30)
       .attr("fill", "darkgray")
