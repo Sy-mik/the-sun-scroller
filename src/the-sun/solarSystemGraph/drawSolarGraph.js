@@ -360,31 +360,8 @@ export default function DrawSolarGraph({
         .attr("font-size", 20)
         .attr("fill", "lightgray")
         .attr("color", "lightgray");
-
-      // svg
-      //   .append("text")
-      //   .text(`1/${parseInt(sunSize / planet.realSizer)} of the sun`)
-      //   .attr("x", w / 2)
-      //   .attr("y", getRealScale(planet.realSizeR) + 2 * 60)
-      //   .attr("text-anchor", "middle")
-      //   .attr("font-size", 20)
-      //   .attr("fill", "lightgray")
-      //   .attr("color", "lightgray");
     });
 
-    // svg
-    //   .append("text")
-    //   .text(`One pixel in the space is ${parseInt(revertredRealScale(1))}km`)
-    //   .attr("x", w / 2)
-    //   .attr("y", getRealScale(sunSize)) //1.5)
-    //   .attr("text-anchor", "middle")
-    //   .attr("font-size", 30)
-    //   .attr("fill", "white")
-    //   .style("opacity", 0)
-    //   .attr("width", "20")
-    //   .transition()
-    //   .duration(1000)
-    //   .style("opacity", 1);
     svg
       .append("text")
       .text(

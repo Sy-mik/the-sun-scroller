@@ -10,7 +10,6 @@ export default function SpinningSunContainer({ scrollPosition }) {
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
   const [sunImage, setSunImage] = useState(images("./" + `image${1}.jpg`));
   // images.forEach(image => (new Image().src = image.src));
-  console.log(images)
   let amountOfImages = 200;
   const ref = useRef();
 
@@ -48,6 +47,13 @@ export default function SpinningSunContainer({ scrollPosition }) {
   function isScrollingDown() {
     return prevScrollPosition < scrollPosition;
   }
+  useEffect(() => {
+    console.log('prefetching')
+    for (let i = 1; i < amountOfImages; i++) {
+      const img = new Image();
+      img.src = images("./" + `image${imgSrcIteration}.jpg`);
+    }
+  }, []);
 
   useEffect(() => {
     if (isWithinBoundaries() && isScrollingUp()) {
