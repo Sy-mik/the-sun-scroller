@@ -6,12 +6,11 @@ export default function SlidingTextWithOpacity({
   text,
   fontSize,
   opacity,
-  style,
+  style: fontStyle,
   headerColor,
   color,
   containerStyle,
   marginTop,
-  marginBottom,
 }) {
   return (
     <div style={{ ...containerStyle, marginTop: marginTop ?? 0 + "px" }}>
@@ -24,7 +23,7 @@ export default function SlidingTextWithOpacity({
           fontWeight: 600,
           zIndex: 100,
           opacity: opacity,
-          fontStyle: style,
+          fontStyle: fontStyle,
         }}
       >
         {headerText}
@@ -37,7 +36,7 @@ export default function SlidingTextWithOpacity({
           fontWeight: 600,
           zIndex: 100,
           opacity: opacity,
-          fontStyle: style,
+          fontStyle: fontStyle,
         }}
       >
         {text}

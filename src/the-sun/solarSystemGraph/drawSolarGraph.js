@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import "./solarSystemGraph.css";
 import planets from "./planets";
-import wrap from "./wrapText";
+import wrap from "../wrapText";
 export default function DrawSolarGraph({
   innerHeight,
   innerWidth,
@@ -451,7 +451,7 @@ export default function DrawSolarGraph({
     svg
       .append("text")
       .text(
-        `Altough space between the planets on the graph is accure, it doesn't represent how much bigger sun is.`
+        `Altough space between the planets on the graph is accure, it doesn't represent how much bigger the sun is.`
       )
       .attr("x", 50)
       .attr("y", 50)

@@ -8,7 +8,7 @@ export default function SlidingTextWithOpacityContainer({
   text,
   fontSize,
   scrollPosition,
-  style,
+  fontStyle,
   color,
   containerStyle,
   windowHeight,
@@ -70,7 +70,7 @@ export default function SlidingTextWithOpacityContainer({
         text={text}
         fontSize={fontSize}
         scrollPosition={scrollPosition}
-        style={style}
+        style={fontStyle}
         color={color}
         customPosition={true}
         opacity={opacity}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 // import { useSpring, animated } from "react-spring"
-import StartingSunImageWithSolarSystemGraphContainer from "./StartingSunImageWithSolarSystemGraphContainer";
+import StartingSunImageWithSolarSystemGraphContainer from "./beggining/StartingSunImageWithSolarSystemGraphContainer";
 import HistoryOfSunScaleContainer from "./historyOfSunScale/history-of-sun-scale-container";
 import SlidingTextWithOpacityContainer from "./animations/sliding-text-with-opacity-container";
 import MeetTheProtostarContainer from "./historyOfSunScale/meet-the-protostar-container";
-import SuperBigHeaderComponent from "./SuperBigHeaderComponent";
+import SuperBigHeaderComponent from "./beggining/SuperBigHeaderComponent";
+import SpinningSunContainer from "./spinningSun/spinning-sun-container";
 
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState();
@@ -58,11 +59,11 @@ export default function TheSunContainer() {
         color={"white"}
         scrollPosition={scrollPosition}
       ></SlidingTextWithOpacityContainer>
-      <div style={{ height: 200 }}></div> 
+      <div style={{ height: 200 }}></div>
 
-       <SlidingTextWithOpacityContainer
+      <SlidingTextWithOpacityContainer
         height={300}
-        style={"italic"}
+        fontStyle={"italic"}
         windowHeight={windowHeight}
         headerText={"5 billions years ago"}
         color={"white"}
@@ -71,13 +72,11 @@ export default function TheSunContainer() {
 
       <HistoryOfSunScaleContainer //
         scrollPosition={scrollPosition}
-        // sectionBeggining={secondSection}
-        // transformY={secondSection}
-      ></HistoryOfSunScaleContainer> 
+      ></HistoryOfSunScaleContainer>
 
       <SlidingTextWithOpacityContainer
         height={300}
-        style={"italic"}
+        fontStyle={"italic"}
         windowHeight={windowHeight}
         headerText={"4.6 billions years ago"}
         color={"white"}
@@ -88,26 +87,23 @@ export default function TheSunContainer() {
       <MeetTheProtostarContainer
         windowHeight={windowHeight}
         scrollPosition={scrollPosition}
-      ></MeetTheProtostarContainer> 
-      <div style={{ height: "5000px" }}></div>
+      ></MeetTheProtostarContainer>
+      <div style={{ height: "200px" }}></div>
 
-      {/* <div style={{ height: "20px" }}></div>
       <SlidingTextWithOpacityContainer
-        height={300}
+        height={500}
+        windowHeight={windowHeight}
+        headerText={"The Main Sequence"}
         color={"white"}
-        headerText={"HEY JUDE"}
         scrollPosition={scrollPosition}
-      ></SlidingTextWithOpacityContainer> */}
+      ></SlidingTextWithOpacityContainer>
+      <div style={{ height: "200px" }}></div>
 
-      {/* <SpinningSunContainer
+      {/* <div style={{ height: "5000px" }}></div> */}
+      {/* <div style={{ height: "20px" }}></div> */}
+      <SpinningSunContainer
         scrollPosition={scrollPosition}
-        prevScrollPosition={prevScrollPosition}
-        sectionBeggining={secondSection}
-        sectionEnding={thirdSection}
-        setSunStyle={setSunStyle}
-        sunStyle={sunStyle}
-        setSunImage={setSunImage}
-      ></SpinningSunContainer> */}
+      ></SpinningSunContainer>
     </div>
   );
 }

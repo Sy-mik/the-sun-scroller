@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import SlidingTextWithOpacityParallaxContainer from "./animations/sliding-text-with-opacity-parallax-container";
-import SpinningSunContainer from "./spinning-sun-container";
-import StartingTextComponent from "./textComponents/startingTextComponent";
+import SlidingTextWithOpacityParallaxContainer from "../animations/sliding-text-with-opacity-parallax-container";
+import SpinningSunContainer from "../spinningSun/spinning-sun-container";
+import StartingTextComponent from "../textComponents/startingTextComponent";
 import * as d3 from "d3";
-import SolarSystemGraph from "./solarSystemGraph";
+import SolarSystemGraph from "../solarSystemGraph/solarSystemGraph";
 import { isMobile } from "react-device-detect";
 import SuperBigHeaderComponent from "./SuperBigHeaderComponent";
 
