@@ -14,13 +14,13 @@ export default function MeetTheProtostarContainer({
   };
 
   const [zoom, setZoom] = useState(1);
-  const scale = d3.scalePow().exponent(3).domain([0, 5000]).range([1, 500]);
+  const scale = d3.scalePow().exponent(3).domain([0, windowHeight*5]).range([1, 700]);
 
   useEffect(() => {
     // innerHeight = window.height;
 
     let zoomScale = scrollPosition - getOffset();
-    if (zoomScale >= 1 && scale(zoomScale) < 500) {
+    if (zoomScale >= 1 && scale(zoomScale) < 700) {
       setZoom(scale(zoomScale));
     } else {
     }
@@ -30,7 +30,7 @@ export default function MeetTheProtostarContainer({
     <div
       ref={ref}
       style={{
-        height: 7000,
+        height: windowHeight*10,
       }}
     >
       <svg
