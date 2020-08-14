@@ -22,9 +22,15 @@ export default function SolarSystemGraph({
     } else return 100000;
   };
   useEffect(() => {
-    if (scrollPosition - getOffset() < 1500 && drawRealSizeGraph) {
+    if (
+      scrollPosition - getOffset() < 1.5 * windowHeight &&
+      drawRealSizeGraph
+    ) {
       setDrawRealSizeGraph(false);
-    } else if (scrollPosition - getOffset() > 1500 && !drawRealSizeGraph) {
+    } else if (
+      scrollPosition - getOffset() > 1.5 * windowHeight &&
+      !drawRealSizeGraph
+    ) {
       setDrawRealSizeGraph(true);
     }
   }, [drawRealSizeGraph, scrollPosition]);
@@ -37,7 +43,7 @@ export default function SolarSystemGraph({
   }
 
   return (
-    <div ref={ref} id={"graphContainer"} style={{  opacity: opacity }}>
+    <div ref={ref} id={"graphContainer"} style={{ opacity: opacity }}>
       <DrawSolarGraph
         innerWidth={windowWidth}
         innerHeight={windowHeight}
@@ -69,7 +75,7 @@ export default function SolarSystemGraph({
           cursor: "pointer",
           top: 30,
           right: 20,
-          zIndex:0
+          zIndex: 0,
           // color: "darkgray",
           // fill: "white",
         }}

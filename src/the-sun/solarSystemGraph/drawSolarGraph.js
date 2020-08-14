@@ -475,7 +475,7 @@ export default function DrawSolarGraph({
   return (
     <div style={{}}>
       <div id="solarSystemGraph"></div>
-      <div style={{ height: innerHeight * 3, width: 0 }}></div>
+      <div style={{ height: innerHeight * 2, width: 0 }}></div>
     </div>
   );
 }
