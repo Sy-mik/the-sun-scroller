@@ -10,6 +10,7 @@ export default function SpinningSunContainer({ scrollPosition }) {
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
   const [sunImage, setSunImage] = useState(images("./" + `image${1}.jpg`));
   // images.forEach(image => (new Image().src = image.src));
+  const preloadedImages = useRef([]);
   let amountOfImages = 200;
   const ref = useRef();
 
@@ -25,14 +26,24 @@ export default function SpinningSunContainer({ scrollPosition }) {
   function fetchPreviousSunImage() {
     if (imgSrcIteration > 1 && imgSrcIteration <= amountOfImages) {
       setImgSrcIteration(imgSrcIteration - 1);
-      setSunImage(images("./" + `image${imgSrcIteration}.jpg`));
+      // if (preloadedImages[imgSrcIteration]) {
+        setSunImage(preloadedImages.current[imgSrcIteration].src);
+      // } else {
+        // console.log('COULD NOT PREFETCH')
+        // setSunImage(images("./" + `image${imgSrcIteration}.jpg`));
+      // }
     }
   }
 
   function fetchNewSunImage() {
     if (imgSrcIteration >= 1 && imgSrcIteration < amountOfImages) {
       setImgSrcIteration(imgSrcIteration + 1);
-      setSunImage(images("./" + `image${imgSrcIteration}.jpg`));
+      // if (preloadedImages[imgSrcIteration]) {
+        setSunImage(preloadedImages.current[imgSrcIteration].src);
+      // } else {
+        // console.log('COULD NOT PREFETCH')
+        // setSunImage(images(`./image${imgSrcIteration}.jpg`));
+      // }
     }
   }
 
@@ -48,12 +59,14 @@ export default function SpinningSunContainer({ scrollPosition }) {
     return prevScrollPosition < scrollPosition;
   }
   useEffect(() => {
-    console.log('prefetching')
     for (let i = 1; i < amountOfImages; i++) {
       const img = new Image();
-      img.src = images("./" + `image${imgSrcIteration}.jpg`);
+      img.src = images(`./image${i}.jpg`);
+      preloadedImages.current.push(img);
     }
   }, []);
+
+  
 
   useEffect(() => {
     if (isWithinBoundaries() && isScrollingUp()) {
@@ -67,6 +80,7 @@ export default function SpinningSunContainer({ scrollPosition }) {
   return (
     <div ref={ref} style={{ height: 3000 }}>
       <img
+      
         src={sunImage}
         style={{ width: "100%", position: "sticky", top: 0 }}
         alt="spinning sun"

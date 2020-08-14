@@ -39,26 +39,26 @@ export default function drawGraph(scale, sizeMulitplier, w, svgHeight, x, y, del
         .attr("class", "planet")
         .attr("id", d.name)
         .attr("color", "white");
-      d3.select(this)
-        .append("g")
-        .attr("transform", "translate(" + scale(d.R) + ",0)")
-        .selectAll("g.moon")
-        .data(d.moons)
-        .enter()
-        .append("g")
-        .attr("class", "moon_cluster")
-        .each(function (d, i) {
-          d3.select(this).append("circle").attr("class", "orbit").attr("r", 20);
-          d3.select(this)
-            .append("circle")
-            .attr("r", 5)
-            .attr("cx", 20)
-            .attr("cy", 0)
-            .attr("class", "moon");
-        })
-        .attr("transform", function (d) {
-          return "rotate(" + (d.phi0 + delta * (d.speed / 100)) + ")";
-        });
+      // d3.select(this)
+      //   .append("g")
+      //   .attr("transform", "translate(" + scale(d.R) + ",0)")
+      //   .selectAll("g.moon")
+      //   .data(d.moons)
+      //   .enter()
+      //   .append("g")
+      //   .attr("class", "moon_cluster")
+      //   .each(function (d, i) {
+      //     d3.select(this).append("circle").attr("class", "orbit").attr("r", 20);
+      //     d3.select(this)
+      //       .append("circle")
+      //       .attr("r", 5)
+      //       .attr("cx", 20)
+      //       .attr("cy", 0)
+      //       .attr("class", "moon");
+      //   })
+      //   .attr("transform", function (d) {
+      //     return "rotate(" + (d.phi0 + delta * (d.speed / 100)) + ")";
+      //   });
     });
   svg
     .selectAll(".planet_cluster, .moon_cluster")
