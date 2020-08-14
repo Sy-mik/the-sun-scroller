@@ -451,7 +451,7 @@ export default function DrawSolarGraph({
     svg
       .append("text")
       .text(
-        `Altough space between the planets on the graph is accure, it doesn't represent how much bigger the sun is.`
+        `Altough space between the planets on the graph is accurate, it doesn't represent how much bigger the sun is.`
       )
       .attr("x", 50)
       .attr("y", 50)
