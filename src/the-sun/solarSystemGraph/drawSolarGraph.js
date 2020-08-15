@@ -440,7 +440,7 @@ export default function DrawSolarGraph({
       .attr("x", w / 2)
       .attr("y", getRealScale(planets[2].realSizeR) + additionalInfoOffset) //1.5)
       .attr("text-anchor", "middle")
-      .attr("font-size", 30)
+      .attr("font-size", constants.smallerFontSize)
       .attr("fill", "darkgray")
       .text(
         "Light takes about 8.3 minutes to reach Earth from the surface of the Sun"
@@ -452,7 +452,7 @@ export default function DrawSolarGraph({
       .attr("x", w / 2)
       .attr("y", getRealScale(planets[3].realSizeR) + additionalInfoOffset) //1.5)
       .attr("text-anchor", "middle")
-      .attr("font-size", 30)
+      .attr("font-size", constants.smallerFontSize)
       .attr("fill", "darkgray")
       .text(
         "Mars is home to the tallest mountain in the solar system." +
@@ -470,7 +470,7 @@ export default function DrawSolarGraph({
         `Altough space between the planets on the graph is accurate, it doesn't represent how much bigger the sun is.`
       )
       .attr("x", "50%")
-      .attr("y", 130)
+      .attr("y", 100)
       .attr("text-anchor", "middle")
       .attr("dominant-baseline", "start")
 
