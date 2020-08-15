@@ -52,7 +52,7 @@ export default function TheSunContainer() {
       ></StartingSunImageWithSolarSystemGraphContainer>
 
       <div ref={graphEndingRef} style={{ height: 0 }}></div>
- {/*
+ 
       <SlidingTextWithOpacityContainer
         height={300}
         fontSize={60}
@@ -86,11 +86,11 @@ export default function TheSunContainer() {
       ></SlidingTextWithOpacityContainer>
       <div style={{ height: 200 }}></div>
 
-      <MeetTheProtostarContainer2
+      {/* <MeetTheProtostarContainer2
         windowWidth={windowWidth}
         windowHeight={windowHeight}
         scrollPosition={scrollPosition}
-      ></MeetTheProtostarContainer2>
+      ></MeetTheProtostarContainer2> */}
 
       <div style={{ height: windowHeight / 2, backgroundColor: "black" }}>
         <SlidingTextWithOpacityContainer
@@ -101,15 +101,15 @@ export default function TheSunContainer() {
           scrollPosition={scrollPosition}
         ></SlidingTextWithOpacityContainer>
       </div>
-      <div style={{ height: "200px", backgroundColor: "black" }}></div> */}
+      <div style={{ height: "200px", backgroundColor: "black" }}></div> 
 
       {/* <div style={{ height: "5000px" }}></div> */}
       {/* <div style={{ height: "20px" }}></div> */}
-      {/* <SpinningSunContainer
+      <SpinningSunContainer
         innerWidth={windowWidth}
         innerHeight={windowHeight}
         scrollPosition={scrollPosition}
-      ></SpinningSunContainer> */}
+      ></SpinningSunContainer>
     </div>
   );
 }

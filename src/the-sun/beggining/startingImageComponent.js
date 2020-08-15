@@ -22,7 +22,7 @@ export default function StartingImageComponent({
         position: "sticky",
         top: 0,
         width: "100%",
-        top: "80%",
+        top: "75%",
         display: "flex",
         // alignContent: "center",
         // alignItems: "center",
@@ -35,7 +35,7 @@ export default function StartingImageComponent({
           maxHeight: innerWidth,
           marginLeft: "auto",
           marginRight: "auto",
-          transform: `scale(${zoom})`,
+          transform: `translate(0px, ${50 * zoom}px) scale(${zoom})`,
           opacity: 1 - solarSystemGraphOpacity,
         }}
         src={sunImage}
