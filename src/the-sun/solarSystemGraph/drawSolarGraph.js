@@ -12,7 +12,7 @@ import mercuryIcon from "../../assets/icons/mercury.svg";
 import venusIcon from "../../assets/icons/venus.svg";
 import neptuneIcon from "../../assets/icons/neptune.svg";
 import { constants } from "../../constants";
-
+import { isMobile } from "react-device-detect";
 export default function DrawSolarGraph({
   innerHeight,
   innerWidth,
@@ -33,10 +33,14 @@ export default function DrawSolarGraph({
     .domain([0, 1437000000])
     .range([0, sizeMulitplier * innerHeight]);
 
+  const PlanetRealScaleMax = isMobile
+    ? innerHeight + (1 / 3) * innerHeight
+    : innerWidth + (1 / 3) * innerWidth;
+
   const planetRealScale = d3
     .scaleLinear()
     .domain([0, sunSize])
-    .range([0, innerWidth + (1 / 3) * innerWidth]);
+    .range([0, PlanetRealScaleMax]);
 
   const revertredRealScale = d3
     .scaleLinear()
@@ -45,13 +49,15 @@ export default function DrawSolarGraph({
 
   const revertredPlanetScale = d3
     .scaleLinear()
-    .domain([0, innerWidth])
+    .domain([0, PlanetRealScaleMax])
     .range([0, 696000]);
 
   const simplifiedScale = d3
     .scaleLinear()
     .domain([0, 1437000000])
     .range([0, innerHeight - 20]);
+
+  const spaceBetweenPlanetInfo = isMobile ? 30 : 20;
 
   var svgHeight = innerHeight;
   var x = w / 2;
@@ -468,7 +474,11 @@ export default function DrawSolarGraph({
       .attr("font-size", 20)
       .attr("fill", "lightgray")
       .attr("color", "lightgray")
-      .call(wrap, constants.defaultWrapTextWidth);
+      .call(wrap, constants.defaultWrapTextWidth)
+      .style("opacity", 0)
+      .transition()
+      .duration(animationDuration)
+      .style("opacity", 1);
 
     planets.forEach((planet) => {
       d3.select("#orbit_" + planet.name)

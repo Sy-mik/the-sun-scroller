@@ -23,12 +23,12 @@ export default function SolarSystemGraph({
   };
   useEffect(() => {
     if (
-      scrollPosition - getOffset() < 1.5 * windowHeight &&
+      scrollPosition - getOffset() < 2 * windowHeight &&
       drawRealSizeGraph
     ) {
       setDrawRealSizeGraph(false);
     } else if (
-      scrollPosition - getOffset() > 1.5 * windowHeight &&
+      scrollPosition - getOffset() >= 2 * windowHeight &&
       !drawRealSizeGraph
     ) {
       setDrawRealSizeGraph(true);

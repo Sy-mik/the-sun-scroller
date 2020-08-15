@@ -7,6 +7,7 @@ import MeetTheProtostarContainer from "./protostar/meet-the-protostar-container"
 import SuperBigHeaderComponent from "./beggining/SuperBigHeaderComponent";
 import SpinningSunContainer from "./spinningSun/spinning-sun-container";
 import MeetTheProtostarContainer2 from "./protostar/meetTheProtostart2";
+import SunburstExample from "./sunBurst/sunburst";
 
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState();
@@ -51,7 +52,7 @@ export default function TheSunContainer() {
       ></StartingSunImageWithSolarSystemGraphContainer>
 
       <div ref={graphEndingRef} style={{ height: 0 }}></div>
-
+ {/*
       <SlidingTextWithOpacityContainer
         height={300}
         fontSize={60}
@@ -100,15 +101,15 @@ export default function TheSunContainer() {
           scrollPosition={scrollPosition}
         ></SlidingTextWithOpacityContainer>
       </div>
-      <div style={{ height: "200px", backgroundColor: "black" }}></div>
+      <div style={{ height: "200px", backgroundColor: "black" }}></div> */}
 
       {/* <div style={{ height: "5000px" }}></div> */}
       {/* <div style={{ height: "20px" }}></div> */}
-      <SpinningSunContainer
+      {/* <SpinningSunContainer
         innerWidth={windowWidth}
         innerHeight={windowHeight}
         scrollPosition={scrollPosition}
-      ></SpinningSunContainer>
+      ></SpinningSunContainer> */}
     </div>
   );
 }
