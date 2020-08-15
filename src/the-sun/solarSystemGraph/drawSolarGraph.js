@@ -34,7 +34,7 @@ export default function DrawSolarGraph({
     .range([0, sizeMulitplier * innerHeight]);
 
   const PlanetRealScaleMax = isMobile
-    ? innerHeight + (1 / 3) * innerHeight
+    ? innerHeight + (1) * innerHeight
     : innerWidth + (1 / 3) * innerWidth;
 
   const planetRealScale = d3
@@ -362,7 +362,7 @@ export default function DrawSolarGraph({
         .attr("font-weight", 400)
         .attr("fill", "lightgray")
         .attr("color", "lightgray")
-        .call(wrap, constants.defaultWrapHeaderWidth);
+        .call(wrap, constants.defaultWrapHeaderWidth + 100);
       svg
         .append("text")
         .text(
@@ -442,7 +442,7 @@ export default function DrawSolarGraph({
       .text(
         "Light takes about 8.3 minutes to reach Earth from the surface of the Sun"
       )
-      .call(wrap, 700);
+      .call(wrap, constants.defaultWrapHeaderWidth);
 
     svg
       .append("text")
@@ -453,9 +453,9 @@ export default function DrawSolarGraph({
       .attr("fill", "darkgray")
       .text(
         "Mars is home to the tallest mountain in the solar system." +
-          " Olympus Mons, a shield volcano, is 21km high and 600km in diameter."
+          " It is 21km high and 600km in diameter."
       )
-      .call(wrap, 650);
+      .call(wrap, constants.defaultWrapHeaderWidth);
   }
 
   function simplifiedSizeGraph() {
