@@ -66,8 +66,8 @@ export default function MeetTheProtostarContainer2({
         <defs>
           {/* <rect id="gradient" width="100%" height="100%" fill="#fff" x="0" y="0" /> */}
           <linearGradient id="gradient">
-            <stop offset="15%" stop-color="black" />
-            <stop offset="80%" stop-color="black" />
+            <stop offset="15%" stopColor="black" />
+            <stop offset="80%" stopColor="black" />
           </linearGradient>
           <mask id="mask">
             <rect width="100%" height="100%" fill="#fff" />
@@ -75,14 +75,12 @@ export default function MeetTheProtostarContainer2({
             <text
               id="meetTheProtostartText"
               style={{ transformOrigin: "center" }}
-              zIndex={100}
-              z-index="100"
               x="50%"
               y="50%"
-              dominant-baseline="middle"
-              text-anchor="middle"
-              font-size="2em"
-              letter-spacing="10"
+              dominantBaseline="middle"
+              textAnchor="middle"
+              fontSize="2em"
+              letterSpacing="10"
               fontWeight="600"
             >
               MEET THE PROTOSTAR

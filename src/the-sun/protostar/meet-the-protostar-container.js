@@ -115,10 +115,9 @@ export default function MeetTheProtostarContainer({
             z-index="100"
             x="50%"
             y="50%"
-            dominant-baseline="middle"
-            text-anchor="middle"
-            style={{}}
-            font-size="2em"
+            dominantBaseline="middle"
+            textAnchor="middle"
+            fontSize="2em"
             letter-spacing="10"
             fontWeight="600"
           >

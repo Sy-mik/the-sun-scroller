@@ -26,7 +26,7 @@ export default function DrawSolarGraph({
   function getRealScale(value) {
     return realScale(value) + planetRealScale(sunSize);
   }
-  let sunSize = 696000;
+  const sunSize = 696000;
   let maxLengthSize = 1437000000;
   const realScale = d3
     .scaleLinear()
@@ -50,8 +50,8 @@ export default function DrawSolarGraph({
 
   const simplifiedScale = d3
     .scaleLinear()
-    .domain([1, 1437000000])
-    .range([1, innerHeight - 20]);
+    .domain([0, 1437000000])
+    .range([0, innerHeight - 20]);
 
   var svgHeight = innerHeight;
   var x = w / 2;
@@ -453,10 +453,6 @@ export default function DrawSolarGraph({
   }
 
   function simplifiedSizeGraph() {
-    d3.select("#solarSystemGraph")
-      .style("position", "sticky")
-      .style("top", "0");
-
     let svg = d3.select("svg");
 
     svg
@@ -478,12 +474,22 @@ export default function DrawSolarGraph({
       d3.select("#orbit_" + planet.name)
         .transition()
         .duration(animationDuration) // miliseconds
-        .attr("r", simplifiedScale(planet.R));
+        .attr("r", function () {
+          if (simplifiedScale(planet.R) < 0) {
+            return 0;
+          }
+          return simplifiedScale(planet.R);
+        });
 
       d3.select("#sun")
         .transition()
         .duration(animationDuration) // miliseconds
-        .attr("r", simplifiedScale(30 * sunSize))
+        .attr("r", function () {
+          if (simplifiedScale(30 * sunSize) < 0) {
+            return 0;
+          }
+          return simplifiedScale(30 * sunSize);
+        })
 
         .style("height", svgHeight);
 
@@ -491,7 +497,12 @@ export default function DrawSolarGraph({
         .transition()
         .duration(animationDuration) // miliseconds
         .attr("cx", simplifiedScale(planet.R))
-        .attr("r", planet.r);
+        .attr("r", function () {
+          if (simplifiedScale(planet.r) < 0) {
+            return 0;
+          }
+          return planet.r;
+        });
     });
   }
 
