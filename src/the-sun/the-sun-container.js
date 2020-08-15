@@ -3,11 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 import StartingSunImageWithSolarSystemGraphContainer from "./beggining/StartingSunImageWithSolarSystemGraphContainer";
 import HistoryOfSunScaleContainer from "./historyOfSunScale/history-of-sun-scale-container";
 import SlidingTextWithOpacityContainer from "./animations/sliding-text-with-opacity-container";
-import MeetTheProtostarContainer from "./protostar/meet-the-protostar-container";
 import SuperBigHeaderComponent from "./beggining/SuperBigHeaderComponent";
 import SpinningSunContainer from "./spinningSun/spinning-sun-container";
-import MeetTheProtostarContainer2 from "./protostar/meetTheProtostart2";
-import SunburstExample from "./sunBurst/sunburst";
 
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState();
