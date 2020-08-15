@@ -59,9 +59,9 @@ export default function TheSunContainer() {
         color={"white"}
         scrollPosition={scrollPosition}
       ></SlidingTextWithOpacityContainer>
-      <div style={{ height: 200 }}></div>
+      <div style={{ height: 200 }}></div> 
 
-      <SlidingTextWithOpacityContainer
+       <SlidingTextWithOpacityContainer
         height={300}
         fontStyle={"italic"}
         windowHeight={windowHeight}
@@ -85,6 +85,7 @@ export default function TheSunContainer() {
       <div style={{ height: 200 }}></div>
 
       <MeetTheProtostarContainer
+        windowWidth= {windowWidth}
         windowHeight={windowHeight}
         scrollPosition={scrollPosition}
       ></MeetTheProtostarContainer>
@@ -96,12 +97,13 @@ export default function TheSunContainer() {
         headerText={"The Main Sequence"}
         color={"white"}
         scrollPosition={scrollPosition}
-      ></SlidingTextWithOpacityContainer>
+      ></SlidingTextWithOpacityContainer> 
       <div style={{ height: "200px" }}></div>
 
       {/* <div style={{ height: "5000px" }}></div> */}
       {/* <div style={{ height: "20px" }}></div> */}
       <SpinningSunContainer
+        imageHeight={windowHeight}
         scrollPosition={scrollPosition}
       ></SpinningSunContainer>
     </div>

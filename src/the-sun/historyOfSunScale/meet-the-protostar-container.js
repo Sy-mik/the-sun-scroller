@@ -4,6 +4,7 @@ import wrap from "../wrapText";
 export default function MeetTheProtostarContainer({
   scrollPosition,
   windowHeight,
+  windowWidth
 }) {
   const ref = useRef();
   // let innerHeight;
@@ -14,13 +15,13 @@ export default function MeetTheProtostarContainer({
   };
 
   const [zoom, setZoom] = useState(1);
-  const scale = d3.scalePow().exponent(3).domain([0, windowHeight*5]).range([1, 700]);
+  const scale = d3.scalePow().exponent(3).domain([0, windowHeight*5]).range([1, 1000]);
 
   useEffect(() => {
     // innerHeight = window.height;
 
     let zoomScale = scrollPosition - getOffset();
-    if (zoomScale >= 1 && scale(zoomScale) < 700) {
+    if (zoomScale >= 1) {
       setZoom(scale(zoomScale));
     } else {
     }
@@ -31,6 +32,7 @@ export default function MeetTheProtostarContainer({
       ref={ref}
       style={{
         height: windowHeight*10,
+        width:'100%'
       }}
     >
       <svg
@@ -40,8 +42,10 @@ export default function MeetTheProtostarContainer({
         style={{
           position: "sticky",
           width: "100%",
+          height:'100%',
           top: 0,
           height: window.innerHeight,
+          backgroundRepeat:'no-repeat',
           backgroundImage:
             'url("https://i.pinimg.com/originals/04/96/92/0496927c2861e4682b10325d9993e683.jpg")',
         }}

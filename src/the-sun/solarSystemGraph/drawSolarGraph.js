@@ -3,6 +3,15 @@ import * as d3 from "d3";
 import "./solarSystemGraph.css";
 import planets from "./planets";
 import wrap from "../wrapText";
+import earthIcon from "../../assets/icons/earth.svg";
+import jupiterIcon from "../../assets/icons/jupiter.svg";
+import marsIcon from "../../assets/icons/mars.svg";
+import saturnIcon from "../../assets/icons/saturn.svg";
+import uranusIcon from "../../assets/icons/uranus.svg";
+import mercuryIcon from "../../assets/icons/mercury.svg";
+import venusIcon from "../../assets/icons/venus.svg";
+import neptuneIcon from "../../assets/icons/neptune.svg";
+
 export default function DrawSolarGraph({
   innerHeight,
   innerWidth,
@@ -54,6 +63,7 @@ export default function DrawSolarGraph({
       R: 57000000,
       realSizeR: 57000000,
       realSizer: 2440,
+      iconpath:mercuryIcon,
       r: 2,
       speed: -1.6,
       phi0: 35,
@@ -67,6 +77,7 @@ export default function DrawSolarGraph({
       R: 108000000,
       realSizeR: 2 * 57000000,
       realSizer: 6052,
+      iconpath:venusIcon,
       r: 4,
       speed: -1.17,
       phi0: 185,
@@ -80,6 +91,7 @@ export default function DrawSolarGraph({
       R: 149000000,
       realSizeR: 3 * 57000000,
       realSizer: 6371,
+      iconpath:earthIcon,
       r: 4,
       speed: -1.0,
       phi0: 135,
@@ -87,13 +99,14 @@ export default function DrawSolarGraph({
       name: "earth",
       moons: [
         // earth
-        // { R:  100000, r:   1, speed: -9.00, phi0:  15 }           // the moon
+        { R: 22, r: 1, speed: -9.0, phi0: 15 }, // the moon
       ],
     },
     {
       R: 228000000,
       realSizeR: 4 * 57000000,
       realSizer: 3390,
+      iconpath:marsIcon,
       r: 2,
       speed: -0.8,
       phi0: 235,
@@ -101,14 +114,15 @@ export default function DrawSolarGraph({
       name: "mars",
       moons: [
         // mars
-        // { R: 12, r: 1, speed: -3.8, phi0: 15 }, // phobos
-        // { R: 18, r: 1, speed: -2.8, phi0: 115 }, // deimos
+        { R: 12, r: 1, speed: -3.8, phi0: 15 }, // phobos
+        { R: 18, r: 1, speed: -2.8, phi0: 115 }, // deimos
       ],
     },
     {
       R: 780000000,
       realSizeR: 5 * 57000000,
       realSizer: 69911,
+      iconpath:jupiterIcon,
       r: 7,
       speed: -0.43,
       phi0: 135,
@@ -116,16 +130,17 @@ export default function DrawSolarGraph({
       name: "jupiter",
       moons: [
         // jupiter
-        // { R: 60, r: 2, speed: -7.7, phi0: 25 }, // io
-        // { R: 2 * 36, r: 1, speed: -2.45, phi0: 95 }, // europa
-        // { R: 2 * 49, r: 3, speed: -1.1, phi0: 125 }, // ganymede
-        // { R: 2 * 79, r: 2, speed: -0.5, phi0: 315 }, // callisto
+        { R: 60, r: 2, speed: -7.7, phi0: 25 }, // io
+        { R: 2 * 36, r: 1, speed: -2.45, phi0: 95 }, // europa
+        { R: 2 * 49, r: 3, speed: -1.1, phi0: 125 }, // ganymede
+        { R: 2 * 79, r: 2, speed: -0.5, phi0: 315 }, // callisto
       ],
     },
     {
       R: 1437000000,
       realSizeR: 6 * 57000000,
       realSizer: 58232,
+      iconpath:saturnIcon,
       r: 3,
       speed: -0.32,
       phi0: 260,
@@ -133,53 +148,39 @@ export default function DrawSolarGraph({
       name: "saturn",
       moons: [
         // saturn
-        // { R: 28, r: 1, speed: -4.1, phi0: 120 }, // mimas
-        // { R: 33, r: 1, speed: -3.9, phi0: 20 }, // enceladus
-        // { R: 38, r: 1, speed: -3.6, phi0: 0 }, // tethys
-        // { R: 44, r: 1, speed: -3.2, phi0: 100 }, // dione
-        // { R: 58, r: 2, speed: -2.9, phi0: 300 }, // rhea
-        // { R: 98, r: 5, speed: -1.3, phi0: 180 }, // titan
-        // { R: 188, r: 2, speed: -0.1, phi0: 10 }, // lapetus
+        { R: 28, r: 1, speed: -4.1, phi0: 120 }, // mimas
+        { R: 33, r: 1, speed: -3.9, phi0: 20 }, // enceladus
+        { R: 38, r: 1, speed: -3.6, phi0: 0 }, // tethys
+        { R: 44, r: 1, speed: -3.2, phi0: 100 }, // dione
+        { R: 58, r: 2, speed: -2.9, phi0: 300 }, // rhea
+        { R: 98, r: 5, speed: -1.3, phi0: 180 }, // titan
+        { R: 188, r: 2, speed: -0.1, phi0: 10 }, // lapetus
       ],
     },
     {
       R: 28710000000,
       realSizeR: 7 * 57000000,
       realSizer: 25362,
+      iconpath:uranusIcon,
       r: 3,
       speed: -0.32,
       phi0: 260,
       symbol: "⛢",
       name: "Uranus",
       moons: [
-        // saturn
-        // { R: 28, r: 1, speed: -4.1, phi0: 120 }, // mimas
-        // { R: 33, r: 1, speed: -3.9, phi0: 20 }, // enceladus
-        // { R: 38, r: 1, speed: -3.6, phi0: 0 }, // tethys
-        // { R: 44, r: 1, speed: -3.2, phi0: 100 }, // dione
-        // { R: 58, r: 2, speed: -2.9, phi0: 300 }, // rhea
-        // { R: 98, r: 5, speed: -1.3, phi0: 180 }, // titan
-        // { R: 188, r: 2, speed: -0.1, phi0: 10 }, // lapetus
       ],
     },
     {
       R: 44971000000,
       realSizeR: 8 * 57000000,
       realSizer: 24622,
+      iconpath:neptuneIcon,
       r: 3,
       speed: -0.32,
       phi0: 260,
       symbol: "♆",
       name: "Neptune",
       moons: [
-        // saturn
-        // { R: 28, r: 1, speed: -4.1, phi0: 120 }, // mimas
-        // { R: 33, r: 1, speed: -3.9, phi0: 20 }, // enceladus
-        // { R: 38, r: 1, speed: -3.6, phi0: 0 }, // tethys
-        // { R: 44, r: 1, speed: -3.2, phi0: 100 }, // dione
-        // { R: 58, r: 2, speed: -2.9, phi0: 300 }, // rhea
-        // { R: 98, r: 5, speed: -1.3, phi0: 180 }, // titan
-        // { R: 188, r: 2, speed: -0.1, phi0: 10 }, // lapetus
       ],
     },
   ];
@@ -189,7 +190,7 @@ export default function DrawSolarGraph({
       .select("#solarSystemGraph")
       .insert("svg")
       .attr("width", w)
-      .attr("height", (sizeMulitplier + 4) * svgHeight); //change to 10* if you want to show the real one
+      .attr("height", sizeMulitplier * svgHeight); //change to 10* if you want to show the real one
 
     // sun
     svg
@@ -224,34 +225,6 @@ export default function DrawSolarGraph({
           .attr("class", "planet")
           .attr("id", d.name)
           .attr("color", "white");
-        d3.select(this)
-          .append("g")
-          .attr("transform", "translate(" + getRealScale(d.R) + ",0)")
-          .selectAll("g.moon")
-          .data(d.moons)
-          .enter()
-          .append("g")
-          .attr("class", "moon_cluster")
-          .each(function (d, i) {
-            d3.select(this)
-              .append("circle")
-              .attr("class", "orbit")
-              .attr("r", 20);
-            d3.select(this)
-              .append("circle")
-              .attr("r", 5)
-              .attr("cx", 20)
-              .attr("cy", 0)
-              .attr("class", "moon");
-          })
-          .attr("transform", function (d) {
-            return "rotate(" + (d.phi0 + delta * (d.speed / 100)) + ")";
-          });
-      });
-    svg
-      .selectAll(".planet_cluster, .moon_cluster")
-      .attr("transform", function (d) {
-        return "rotate(" + (d.phi0 + delta * (d.speed / 100)) + ")";
       });
 
     d3.select("#solarSystemGraph")
@@ -273,13 +246,6 @@ export default function DrawSolarGraph({
 
     if (drawRealSizeGraph) {
       realSizeGraph(svg);
-
-      setInterval(function () {
-        var delta = Date.now() - t0;
-        svg.selectAll(".moon_cluster").attr("transform", function (d) {
-          return "rotate(" + (d.phi0 + delta * (d.speed / 100)) + ")";
-        });
-      }, 40);
     } else {
       simplifiedSizeGraph(svg);
       setInterval(function () {
@@ -302,14 +268,57 @@ export default function DrawSolarGraph({
     svg
       .selectAll(".planet_cluster, .moon_cluster")
       .attr("transform", function (d) {
-        return "rotate(90)";
+        // return "rotate(90)";
       });
 
     planets.forEach((planet) => {
+      var parentNode = d3.select("#" + planet.name);
+      var g = parentNode.select(function () {
+        return this.parentNode;
+      });
+
       d3.select("#orbit_" + planet.name)
         .transition()
         .duration(animationDuration) // miliseconds
         .attr("r", getRealScale(planet.realSizeR));
+
+      g.append("svg:image")
+        .attr("xlink:href", function () {
+          return planet.iconpath;
+        })
+        .attr("x", 0)
+        .attr("y", getRealScale(planet.realSizeR))
+        .attr("width", 2 * planetRealScale(planet.realSizer))
+        .attr(
+          "transform",
+          `translate(-${planetRealScale(planet.realSizer)},-${planetRealScale(
+            planet.realSizer
+          )})`
+        )
+        .attr("height", 2 * planetRealScale(planet.realSizer))
+        .attr("id", "icon_" + planet.name);
+
+      g.selectAll("g.moon")
+        .data(planet.moons)
+        .enter()
+        .append("g")
+        .attr("class", "moon_cluster")
+        .attr(
+          "transform",
+          `translate(-${planetRealScale(0)},${getRealScale(planet.realSizeR)})`
+        )
+        .each(function (d, i) {
+          d3.select(this)
+            .append("circle")
+            .attr("class", "orbit")
+            .attr("r", planetRealScale(planet.realSizer) + d.R);
+          d3.select(this)
+            .append("circle")
+            .attr("r", d.r)
+            .attr("cx", planetRealScale(planet.realSizer) + d.R)
+            .attr("cy", 0)
+            .attr("class", "moon");
+        });
 
       d3.select("#sun")
         .transition()
@@ -361,6 +370,14 @@ export default function DrawSolarGraph({
         .attr("fill", "lightgray")
         .attr("color", "lightgray");
     });
+
+    var delta = Date.now() - t0;
+    setInterval(function () {
+      var delta = Date.now() - t0;
+      svg.selectAll(".moon").attr("transform", function (d) {
+        return "rotate(" + (d.phi0 + delta * (d.speed / 100)) + ")";
+      });
+    }, 40);
 
     svg
       .append("text")
@@ -444,12 +461,15 @@ export default function DrawSolarGraph({
       .text(
         `Altough space between the planets on the graph is accurate, it doesn't represent how much bigger the sun is.`
       )
-      .attr("x", 50)
-      .attr("y", 50)
+      .attr("x", "50%")
+      .attr("y", 100)
+      .attr("text-anchor", "middle")
+      .attr("dominant-baseline", "start")
+
       .attr("font-size", 20)
       .attr("fill", "lightgray")
       .attr("color", "lightgray")
-      .call(wrap, 350);
+      .call(wrap, 365);
 
     planets.forEach((planet) => {
       d3.select("#orbit_" + planet.name)
@@ -479,99 +499,3 @@ export default function DrawSolarGraph({
     </div>
   );
 }
-
-/*var planets = [
-    {
-      R: 57000000,
-      realSizeR: 57000000,
-      realSizer: 2440,
-      r: 2,
-      speed: -1.6,
-      phi0: 35,
-      symbol: "☿",
-      name: "mercury",
-      moons: [
-        // mercury
-      ],
-    },
-    {
-      R: 108000000,
-      realSizeR: 108000000,
-      realSizer: 6052,
-      r: 4,
-      speed: -1.17,
-      phi0: 185,
-      symbol: "♀",
-      name: "venus",
-      moons: [
-        // venus
-      ],
-    },
-    {
-      R: 149000000,
-      realSizeR: 149000000,
-      realSizer: 6371,
-      r: 4,
-      speed: -1.0,
-      phi0: 135,
-      symbol: "⊕",
-      name: "earth",
-      moons: [
-        // earth
-        // { R: 20, r: 2, speed: -9.0, phi0: 15 }, // the moon
-      ],
-    },
-    {
-      R: 228000000,
-      realSizeR: 228000000,
-      realSizer: 3390,
-      r: 2,
-      speed: -0.8,
-      phi0: 235,
-      symbol: "♂",
-      name: "mars",
-      moons: [
-        // mars
-        // { R: 12, r: 1, speed: -3.8, phi0: 15 }, // phobos
-        // { R: 18, r: 1, speed: -2.8, phi0: 115 }, // deimos
-      ],
-    },
-    {
-      R: 780000000,
-      realSizeR: 780000000,
-      realSizer: 69911,
-      r: 7,
-      speed: -0.43,
-      phi0: 135,
-      symbol: "♃",
-      name: "jupiter",
-      moons: [
-        // jupiter
-        // { R: 60, r: 2, speed: -7.7, phi0: 25 }, // io
-        // { R: 2 * 36, r: 1, speed: -2.45, phi0: 95 }, // europa
-        // { R: 2 * 49, r: 3, speed: -1.1, phi0: 125 }, // ganymede
-        // { R: 2 * 79, r: 2, speed: -0.5, phi0: 315 }, // callisto
-      ],
-    },
-    {
-      R: 1437000000,
-      realSizeR: 1437000000,
-      realSizer: 58232,
-      r: 3,
-      speed: -0.32,
-      phi0: 260,
-      symbol: "♄",
-      name: "saturn",
-      moons: [
-        // saturn
-        // { R: 28, r: 1, speed: -4.1, phi0: 120 }, // mimas
-        // { R: 33, r: 1, speed: -3.9, phi0: 20 }, // enceladus
-        // { R: 38, r: 1, speed: -3.6, phi0: 0 }, // tethys
-        // { R: 44, r: 1, speed: -3.2, phi0: 100 }, // dione
-        // { R: 58, r: 2, speed: -2.9, phi0: 300 }, // rhea
-        // { R: 98, r: 5, speed: -1.3, phi0: 180 }, // titan
-        // { R: 188, r: 2, speed: -0.1, phi0: 10 }, // lapetus
-      ],
-    },
-  ];
-  */

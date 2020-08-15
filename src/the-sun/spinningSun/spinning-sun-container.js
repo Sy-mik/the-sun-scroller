@@ -4,7 +4,8 @@ import SuperBigHeaderComponent from "../beggining/SuperBigHeaderComponent";
 import TextAppearingFromBottomTransition from "../animations/text-appearing-from-bottom-transition";
 // import * as from '../../assets/sun-images/'
 import defaultImage from "../../assets/sun-images/image1.jpg";
-export default function SpinningSunContainer({ scrollPosition }) {
+import { image } from "d3";
+export default function SpinningSunContainer({ scrollPosition, imageHeight }) {
   const images = require.context("../../assets/sun-images/", true);
   const [imgSrcIteration, setImgSrcIteration] = useState(1);
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
@@ -82,7 +83,7 @@ export default function SpinningSunContainer({ scrollPosition }) {
       <img
       
         src={sunImage}
-        style={{ width: "100%", position: "sticky", top: 0 }}
+        style={{ height: imageHeight/2, position: "sticky", top: "20%" }}
         alt="spinning sun"
       />
       {/* <h1 style={{zIndex:100, position:'absolute', color: "white",
