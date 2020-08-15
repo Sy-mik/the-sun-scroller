@@ -22,10 +22,7 @@ export default function SolarSystemGraph({
     } else return 100000;
   };
   useEffect(() => {
-    if (
-      scrollPosition - getOffset() < 2 * windowHeight &&
-      drawRealSizeGraph
-    ) {
+    if (scrollPosition - getOffset() < 2 * windowHeight && drawRealSizeGraph) {
       setDrawRealSizeGraph(false);
     } else if (
       scrollPosition - getOffset() >= 2 * windowHeight &&
@@ -52,20 +49,22 @@ export default function SolarSystemGraph({
         height={height}
         offset={getOffset()}
       ></DrawSolarGraph>
-      <p
+      <button
         className="onHoverClickableText"
         onClick={() => goToTop()}
         style={{
           display: opacity > 0 ? "inherit" : "none",
           position: "fixed",
           cursor: "pointer",
-          top: 0,
+          top: 10,
           right: 20,
+          backgroundColor: "transparent",
+          border: "none",
         }}
       >
         Beggining
-      </p>
-      <p
+      </button>
+      <button
         className="onHoverClickableText"
         // onMouseEnter={()=>{}}
         onClick={() => skipPlanets()}
@@ -73,15 +72,18 @@ export default function SolarSystemGraph({
           display: opacity > 0 ? "inherit" : "none",
           position: "fixed",
           cursor: "pointer",
-          top: 30,
+          top:40,
           right: 20,
           zIndex: 0,
+          backgroundColor: "transparent",
+          border: "none",
+
           // color: "darkgray",
           // fill: "white",
         }}
       >
         History
-      </p>
+      </button>
       {/* <div ref={endingGraphRef} style={{ height: windowHeight*2, width:0 }}></div> */}
     </div>
   );
