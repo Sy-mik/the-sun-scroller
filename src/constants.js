@@ -5,5 +5,6 @@ export const constants = {
   defaultWrapTextWidth: isMobile ? 300 : 370,
   defaultWrapHeaderWidth: isMobile ? 300 : 700,
   smallerFontSize: isMobile ? 17 : 20,
+  smallHeaderOnMobile :isMobile ? 17 : 30
   //   defaultMobileParagraphWidth: "10em",
 };
