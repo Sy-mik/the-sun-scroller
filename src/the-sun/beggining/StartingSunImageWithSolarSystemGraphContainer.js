@@ -56,7 +56,7 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
   return (
     <div
       style={{
-        height: 15 * innerHeight,
+        height: 16 * innerHeight,
         zIndex: 99,
         width: "100%",
       }}

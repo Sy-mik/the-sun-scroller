@@ -28,6 +28,7 @@ export default function DrawSolarGraph({
   }
   const sunSize = 696000;
   let maxLengthSize = 1437000000;
+  const spaceBetweenThePlanets = 65000000;
   const realScale = d3
     .scaleLinear()
     .domain([0, 1437000000])
@@ -68,7 +69,7 @@ export default function DrawSolarGraph({
   var planets = [
     {
       R: 57000000,
-      realSizeR: 57000000,
+      realSizeR: spaceBetweenThePlanets,
       realSizer: 2440,
       iconpath: mercuryIcon,
       r: 2,
@@ -82,7 +83,7 @@ export default function DrawSolarGraph({
     },
     {
       R: 108000000,
-      realSizeR: 2 * 57000000,
+      realSizeR: 2 * spaceBetweenThePlanets,
       realSizer: 6052,
       iconpath: venusIcon,
       r: 4,
@@ -96,7 +97,7 @@ export default function DrawSolarGraph({
     },
     {
       R: 149000000,
-      realSizeR: 3 * 57000000,
+      realSizeR: 3 * spaceBetweenThePlanets,
       realSizer: 6371,
       iconpath: earthIcon,
       r: 4,
@@ -111,7 +112,7 @@ export default function DrawSolarGraph({
     },
     {
       R: 228000000,
-      realSizeR: 4 * 57000000,
+      realSizeR: 4 * spaceBetweenThePlanets,
       realSizer: 3390,
       iconpath: marsIcon,
       r: 2,
@@ -127,7 +128,7 @@ export default function DrawSolarGraph({
     },
     {
       R: 780000000,
-      realSizeR: 5 * 57000000,
+      realSizeR: 5 * spaceBetweenThePlanets,
       realSizer: 69911,
       iconpath: jupiterIcon,
       r: 7,
@@ -145,7 +146,7 @@ export default function DrawSolarGraph({
     },
     {
       R: 1437000000,
-      realSizeR: 6 * 57000000,
+      realSizeR: 6 * spaceBetweenThePlanets,
       realSizer: 58232,
       iconpath: saturnIcon,
       r: 3,
@@ -166,7 +167,7 @@ export default function DrawSolarGraph({
     },
     {
       R: 28710000000,
-      realSizeR: 7 * 57000000,
+      realSizeR: 7 * spaceBetweenThePlanets,
       realSizer: 25362,
       iconpath: uranusIcon,
       r: 3,
@@ -178,7 +179,7 @@ export default function DrawSolarGraph({
     },
     {
       R: 44971000000,
-      realSizeR: 8 * 57000000,
+      realSizeR: 8 * spaceBetweenThePlanets,
       realSizer: 24622,
       iconpath: neptuneIcon,
       r: 3,
@@ -276,7 +277,7 @@ export default function DrawSolarGraph({
         // return "rotate(90)";
       });
 
-    planets.forEach((planet) => {
+    planets.forEach((planet, index) => {
       var parentNode = d3.select("#" + planet.name);
       var g = parentNode.select(function () {
         return this.parentNode;
@@ -336,10 +337,7 @@ export default function DrawSolarGraph({
         .attr("cx", getRealScale(planet.realSizeR))
         .attr("r", planetRealScale(planet.realSizer));
 
-      var info = svg
-        .append("g")
-        .attr("transform", "translate(0, -50)");
-
+      var info = svg.append("g");
       info
         .append("text")
         .text(
@@ -436,10 +434,11 @@ export default function DrawSolarGraph({
       .duration(animationDuration)
       .style("opacity", 1);
 
+    const additionalInfoOffset = 3 * 55;
     svg
       .append("text")
       .attr("x", w / 2)
-      .attr("y", getRealScale(planets[2].realSizeR) + 2 * 55) //1.5)
+      .attr("y", getRealScale(planets[2].realSizeR) + additionalInfoOffset) //1.5)
       .attr("text-anchor", "middle")
       .attr("font-size", 30)
       .attr("fill", "darkgray")
@@ -451,7 +450,7 @@ export default function DrawSolarGraph({
     svg
       .append("text")
       .attr("x", w / 2)
-      .attr("y", getRealScale(planets[3].realSizeR) + 2 * 55) //1.5)
+      .attr("y", getRealScale(planets[3].realSizeR) + additionalInfoOffset) //1.5)
       .attr("text-anchor", "middle")
       .attr("font-size", 30)
       .attr("fill", "darkgray")
