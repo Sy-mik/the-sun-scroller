@@ -45,7 +45,6 @@ export default function SlidingTextWithOpacityParallaxContainer({
 
   const [opacity, setOpacity] = useState(0)
   useEffect(() => {
-    // console.log(`margin ${margin()} ${scrollPosition - getOffset()}`)
     setWindowHeightOffset(window.innerHeight / 2) // centered text
     getOffset()
     if (windowHeightOffset + scrollPosition - getOffset() < height / 2) {

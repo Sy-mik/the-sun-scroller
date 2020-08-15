@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react"
 import { isMobile } from "react-device-detect"
 
 import SlidingTextWithOpacityParallaxContainer from "../animations/sliding-text-with-opacity-parallax-container"
+import { constants } from "../../constants"
 
 export default function StartingTextComponent({ scrollPosition }) {
   return (
@@ -12,7 +13,7 @@ export default function StartingTextComponent({ scrollPosition }) {
         top: "10%",
         width: "100%",
         textAlign: "center",
-        maxWidth: "28rem",
+        maxWidth: constants.defaultParagraphWidth,
         left: "50%",
         transform: "translate(-50%, 0)",
         zIndex: 100,

@@ -11,6 +11,7 @@ import uranusIcon from "../../assets/icons/uranus.svg";
 import mercuryIcon from "../../assets/icons/mercury.svg";
 import venusIcon from "../../assets/icons/venus.svg";
 import neptuneIcon from "../../assets/icons/neptune.svg";
+import { constants } from "../../constants";
 
 export default function DrawSolarGraph({
   innerHeight,
@@ -35,7 +36,7 @@ export default function DrawSolarGraph({
   const planetRealScale = d3
     .scaleLinear()
     .domain([0, sunSize])
-    .range([0, innerWidth]);
+    .range([0, innerWidth + (1 / 3) * innerWidth]);
 
   const revertredRealScale = d3
     .scaleLinear()
@@ -63,7 +64,7 @@ export default function DrawSolarGraph({
       R: 57000000,
       realSizeR: 57000000,
       realSizer: 2440,
-      iconpath:mercuryIcon,
+      iconpath: mercuryIcon,
       r: 2,
       speed: -1.6,
       phi0: 35,
@@ -77,7 +78,7 @@ export default function DrawSolarGraph({
       R: 108000000,
       realSizeR: 2 * 57000000,
       realSizer: 6052,
-      iconpath:venusIcon,
+      iconpath: venusIcon,
       r: 4,
       speed: -1.17,
       phi0: 185,
@@ -91,7 +92,7 @@ export default function DrawSolarGraph({
       R: 149000000,
       realSizeR: 3 * 57000000,
       realSizer: 6371,
-      iconpath:earthIcon,
+      iconpath: earthIcon,
       r: 4,
       speed: -1.0,
       phi0: 135,
@@ -106,7 +107,7 @@ export default function DrawSolarGraph({
       R: 228000000,
       realSizeR: 4 * 57000000,
       realSizer: 3390,
-      iconpath:marsIcon,
+      iconpath: marsIcon,
       r: 2,
       speed: -0.8,
       phi0: 235,
@@ -122,7 +123,7 @@ export default function DrawSolarGraph({
       R: 780000000,
       realSizeR: 5 * 57000000,
       realSizer: 69911,
-      iconpath:jupiterIcon,
+      iconpath: jupiterIcon,
       r: 7,
       speed: -0.43,
       phi0: 135,
@@ -140,7 +141,7 @@ export default function DrawSolarGraph({
       R: 1437000000,
       realSizeR: 6 * 57000000,
       realSizer: 58232,
-      iconpath:saturnIcon,
+      iconpath: saturnIcon,
       r: 3,
       speed: -0.32,
       phi0: 260,
@@ -161,27 +162,25 @@ export default function DrawSolarGraph({
       R: 28710000000,
       realSizeR: 7 * 57000000,
       realSizer: 25362,
-      iconpath:uranusIcon,
+      iconpath: uranusIcon,
       r: 3,
       speed: -0.32,
       phi0: 260,
       symbol: "⛢",
       name: "Uranus",
-      moons: [
-      ],
+      moons: [],
     },
     {
       R: 44971000000,
       realSizeR: 8 * 57000000,
       realSizer: 24622,
-      iconpath:neptuneIcon,
+      iconpath: neptuneIcon,
       r: 3,
       speed: -0.32,
       phi0: 260,
       symbol: "♆",
       name: "Neptune",
-      moons: [
-      ],
+      moons: [],
     },
   ];
 
@@ -190,7 +189,7 @@ export default function DrawSolarGraph({
       .select("#solarSystemGraph")
       .insert("svg")
       .attr("width", w)
-      .attr("height", sizeMulitplier * svgHeight); //change to 10* if you want to show the real one
+      .attr("height", 15 * svgHeight); //change to 10* if you want to show the real one
 
     // sun
     svg
@@ -344,7 +343,8 @@ export default function DrawSolarGraph({
         .attr("text-anchor", "middle")
         .attr("font-size", 40)
         .attr("font-weight", 600)
-        .attr("fill", "lightgray");
+        .attr("fill", "lightgray")
+        .call(wrap, constants.defaultWrapHeaderWidth);
 
       svg
         .append("text")
@@ -355,7 +355,8 @@ export default function DrawSolarGraph({
         .attr("font-size", 20)
         .attr("font-weight", 400)
         .attr("fill", "lightgray")
-        .attr("color", "lightgray");
+        .attr("color", "lightgray")
+        .call(wrap, constants.defaultWrapHeaderWidth);
       svg
         .append("text")
         .text(
@@ -368,7 +369,8 @@ export default function DrawSolarGraph({
         .attr("text-anchor", "middle")
         .attr("font-size", 20)
         .attr("fill", "lightgray")
-        .attr("color", "lightgray");
+        .attr("color", "lightgray")
+        .call(wrap, constants.defaultWrapHeaderWidth);
     });
 
     var delta = Date.now() - t0;
@@ -393,7 +395,8 @@ export default function DrawSolarGraph({
       .attr("width", "20")
       .transition()
       .duration(animationDuration)
-      .style("opacity", 1);
+      .style("opacity", 1)
+      .call(wrap, constants.defaultWrapHeaderWidth);
 
     svg
       .append("text")
@@ -469,7 +472,7 @@ export default function DrawSolarGraph({
       .attr("font-size", 20)
       .attr("fill", "lightgray")
       .attr("color", "lightgray")
-      .call(wrap, 365);
+      .call(wrap, constants.defaultWrapTextWidth);
 
     planets.forEach((planet) => {
       d3.select("#orbit_" + planet.name)

@@ -4,14 +4,24 @@ import SuperBigHeaderComponent from "../beggining/SuperBigHeaderComponent";
 import TextAppearingFromBottomTransition from "../animations/text-appearing-from-bottom-transition";
 // import * as from '../../assets/sun-images/'
 import defaultImage from "../../assets/sun-images/image1.jpg";
-import { image } from "d3";
-export default function SpinningSunContainer({ scrollPosition, imageHeight }) {
+import { ismobile } from "react-device-detect";
+import * as d3 from "d3";
+export default function SpinningSunContainer({
+  scrollPosition,
+  innerHeight,
+  innerWidth,
+}) {
   const images = require.context("../../assets/sun-images/", true);
   const [imgSrcIteration, setImgSrcIteration] = useState(1);
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
   const [sunImage, setSunImage] = useState(images("./" + `image${1}.jpg`));
   // images.forEach(image => (new Image().src = image.src));
   const preloadedImages = useRef([]);
+  const height = 2 * innerHeight;
+  const scrollScale = d3
+    .scaleLinear()
+    .domain([0, (1 / 2) * height])
+    .range([0, 200]);
   let amountOfImages = 200;
   const ref = useRef();
 
@@ -25,26 +35,28 @@ export default function SpinningSunContainer({ scrollPosition, imageHeight }) {
   let sectionBeggining = getOffset();
 
   function fetchPreviousSunImage() {
-    if (imgSrcIteration > 1 && imgSrcIteration <= amountOfImages) {
-      setImgSrcIteration(imgSrcIteration - 1);
-      // if (preloadedImages[imgSrcIteration]) {
+    if (imgSrcIteration >= 0 && imgSrcIteration <= amountOfImages) {
+      // setImgSrcIteration(imgSrcIteration - 1);
+      setImgSrcIteration(parseInt(scrollScale(scrollPosition - getOffset())));
+      if (
+        preloadedImages.current[imgSrcIteration] &&
+        preloadedImages.current[imgSrcIteration].src
+      ) {
         setSunImage(preloadedImages.current[imgSrcIteration].src);
-      // } else {
-        // console.log('COULD NOT PREFETCH')
-        // setSunImage(images("./" + `image${imgSrcIteration}.jpg`));
-      // }
+      }
     }
   }
 
   function fetchNewSunImage() {
-    if (imgSrcIteration >= 1 && imgSrcIteration < amountOfImages) {
-      setImgSrcIteration(imgSrcIteration + 1);
-      // if (preloadedImages[imgSrcIteration]) {
+    if (imgSrcIteration >= 0 && imgSrcIteration < amountOfImages - 1) {
+      setImgSrcIteration(parseInt(scrollScale(scrollPosition - getOffset())));
+
+      if (
+        preloadedImages.current[imgSrcIteration] &&
+        preloadedImages.current[imgSrcIteration].src
+      ) {
         setSunImage(preloadedImages.current[imgSrcIteration].src);
-      // } else {
-        // console.log('COULD NOT PREFETCH')
-        // setSunImage(images(`./image${imgSrcIteration}.jpg`));
-      // }
+      }
     }
   }
 
@@ -67,23 +79,27 @@ export default function SpinningSunContainer({ scrollPosition, imageHeight }) {
     }
   }, []);
 
-  
-
   useEffect(() => {
     if (isWithinBoundaries() && isScrollingUp()) {
       fetchPreviousSunImage();
     } else if (isWithinBoundaries() && isScrollingDown()) {
       fetchNewSunImage();
     }
+    if (imgSrcIteration > amountOfImages) {
+      setImgSrcIteration(amountOfImages - 1);
+    }
     setPrevScrollPosition(scrollPosition);
   }, [scrollPosition, prevScrollPosition]);
 
   return (
-    <div ref={ref} style={{ height: 3000 }}>
+    <div ref={ref} style={{ height: height, backgroundColor: "black" }}>
       <img
-      
         src={sunImage}
-        style={{ height: imageHeight/2, position: "sticky", top: "20%" }}
+        style={{
+          width: ismobile ? innerHeight / 2 : innerWidth / 2,
+          position: "sticky",
+          top: "20%",
+        }}
         alt="spinning sun"
       />
       {/* <h1 style={{zIndex:100, position:'absolute', color: "white",

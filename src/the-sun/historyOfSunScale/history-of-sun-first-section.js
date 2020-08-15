@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import * as d3 from "d3" //
 import SlidingTextWithOpacity from "../animations/sliding-text-with-opacity"
-import MeetTheProtostarContainer from "./meet-the-protostar-container"
+import MeetTheProtostarContainer from "../protostar/meet-the-protostar-container"
 import SlidingTextWithOpacityContainer from "../animations/sliding-text-with-opacity-container"
 
 export default function HistoryOfSunFirstSection({
