@@ -487,6 +487,7 @@ export default function DrawSolarGraph({
       d3.select("#orbit_" + planet.name)
         .transition()
         .duration(animationDuration) // miliseconds
+        .attr("shape-rendering","geometricPrecision")
         .attr("r", function () {
           if (simplifiedScale(planet.R) < 0) {
             return 0;
