@@ -31,13 +31,24 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
       return currrentRef.current.offsetTop;
     } else return 100000;
   };
-const exponent = isMobile ? 1 : 4
-  const scale = d3.scalePow().exponent(exponent).domain([0, 2000]).range([1, 0]);
+  const exponent = isMobile ? 1 : 1;
+  const scale = d3
+    .scalePow()
+    .exponent(exponent)
+    .domain([0, 2500])
+    .range([0, 500]); //d3.scalePow().exponent(4).domain([0, 2000]).range([1, 0]);
+
   const opacityScale = d3
     .scalePow()
-    .exponent(2)
+    .exponent(exponent)
     .domain([0, 1000])
     .range([0, 1]);
+
+  const translateScale = d3
+    .scalePow()
+    .exponent(exponent)
+    .domain([0, 1000])
+    .range([0, 1000]);
 
   useEffect(() => {
     let zoomScale = scrollPosition - getOffset(ref);
