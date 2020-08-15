@@ -34,7 +34,7 @@ export default function DrawSolarGraph({
     .range([0, sizeMulitplier * innerHeight]);
 
   const PlanetRealScaleMax = isMobile
-    ? innerHeight + (1) * innerHeight
+    ? innerHeight + 1 * innerHeight
     : innerWidth + (1 / 3) * innerWidth;
 
   const planetRealScale = d3
@@ -336,7 +336,11 @@ export default function DrawSolarGraph({
         .attr("cx", getRealScale(planet.realSizeR))
         .attr("r", planetRealScale(planet.realSizer));
 
-      svg
+      var info = svg
+        .append("g")
+        .attr("transform", "translate(0, -50)");
+
+      info
         .append("text")
         .text(
           planet.name.charAt(0).toUpperCase() +
@@ -352,7 +356,7 @@ export default function DrawSolarGraph({
         .attr("fill", "lightgray")
         .call(wrap, constants.defaultWrapHeaderWidth);
 
-      svg
+      info
         .append("text")
         .text(`${planet.realSizeR / 1000000} million km from the sun`)
         .attr("x", w / 2)
@@ -363,7 +367,7 @@ export default function DrawSolarGraph({
         .attr("fill", "lightgray")
         .attr("color", "lightgray")
         .call(wrap, constants.defaultWrapHeaderWidth + 100);
-      svg
+      info
         .append("text")
         .text(
           `${new Intl.NumberFormat().format(
@@ -435,7 +439,7 @@ export default function DrawSolarGraph({
     svg
       .append("text")
       .attr("x", w / 2)
-      .attr("y", getRealScale(planets[2].realSizeR) + 3 * 55) //1.5)
+      .attr("y", getRealScale(planets[2].realSizeR) + 2 * 55) //1.5)
       .attr("text-anchor", "middle")
       .attr("font-size", 30)
       .attr("fill", "darkgray")
@@ -447,7 +451,7 @@ export default function DrawSolarGraph({
     svg
       .append("text")
       .attr("x", w / 2)
-      .attr("y", getRealScale(planets[3].realSizeR) + 3 * 55) //1.5)
+      .attr("y", getRealScale(planets[3].realSizeR) + 2 * 55) //1.5)
       .attr("text-anchor", "middle")
       .attr("font-size", 30)
       .attr("fill", "darkgray")
