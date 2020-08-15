@@ -310,7 +310,7 @@ export default function DrawSolarGraph({
         .each(function (d, i) {
           d3.select(this)
             .append("circle")
-            .attr("class", "orbit")
+            .attr("class", "moonOrbit")
             .attr("r", planetRealScale(planet.realSizer) + d.R);
           d3.select(this)
             .append("circle")

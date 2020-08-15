@@ -14,7 +14,13 @@
         stroke: #ccc;
         stroke-width: 2px;
         fill: transparent;
+      }
 
+      .moonOrbit{
+        stroke: gray;
+        stroke-width: 1px;
+        stroke-dasharray: 5;
+        
       }
       .planet {
         stroke: #666;
