@@ -36,7 +36,7 @@ export default function StartingImageComponent({
           marginLeft: "auto",
           marginRight: "auto",
           transform: `translate(0px, ${zoom}px)`,
-          opacity: 1 - solarSystemGraphOpacity,
+          opacity: solarSystemGraphOpacity,
         }}
         src={sunImage}
       ></img>

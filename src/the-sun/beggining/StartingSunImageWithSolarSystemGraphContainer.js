@@ -21,8 +21,10 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
   const [sunImage, setSunImage] = useState(
     "https://static01.nyt.com/images/2020/03/10/science/25OBS-SUNSPOT1/25TB-SUNSPOT1-mediumSquareAt3X.jpg"
   );
-  const [zoom, setZoom] = useState(1);
+  const [translateSunY, setTranslateSunY] = useState(1);
   const [solarSystemGraphOpacity, setSolarSystemGraphOpacity] = useState(1);
+  const [sunImageOpacity, setSunImageOpacity] = useState(1);
+
   const [visible, setVisible] = useState(false);
   let innerHeight = windowHeight;
   let innerWidth = windowWidth;
@@ -44,23 +46,19 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
     .domain([0, 1000])
     .range([0, 1]);
 
-  const translateScale = d3
-    .scalePow()
-    .exponent(exponent)
-    .domain([0, 1000])
-    .range([0, 1000]);
-
   useEffect(() => {
     let zoomScale = scrollPosition - getOffset(ref);
     if (zoomScale > 0 && scale(zoomScale) >= 0) {
       setVisible(true);
-      setZoom(scale(zoomScale));
+      setTranslateSunY(scale(zoomScale));
+      setSunImageOpacity(1-solarSystemGraphOpacity)
     }
     let graphScale = scrollPosition - getOffset(solarSystemRef) + 100;
     setSolarSystemGraphOpacity(opacityScale(graphScale));
-
+    setSunImageOpacity(1-solarSystemGraphOpacity)
     if (scrollPosition > graphEndingRef.current.offsetTop) {
-      setSolarSystemGraphOpacity(opacityScale(0));
+      setSunImageOpacity(0);
+      setVisible(false);
     }
   }, [opacityScale, scale, scrollPosition]);
 
@@ -79,9 +77,9 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
         innerHeight={innerHeight}
         innerWidth={innerWidth}
         scrollPosition={scrollPosition}
-        solarSystemGraphOpacity={solarSystemGraphOpacity}
+        solarSystemGraphOpacity={1- solarSystemGraphOpacity}
         sunImage={sunImage}
-        zoom={zoom}
+        zoom={translateSunY}
       ></StartingImageComponent>
 
       <div style={{ visibility: visible ? "visible" : "hidden" }}>
