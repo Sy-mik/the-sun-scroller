@@ -377,7 +377,7 @@ export default function DrawSolarGraph({
         .attr("x", w / 2)
         .attr("y", getRealScale(planet.realSizeR) + 2 * 40)
         .attr("text-anchor", "middle")
-        .attr("font-size", 20)
+        .attr("font-size", constants.smallerFontSize)
         .attr("fill", "lightgray")
         .attr("color", "lightgray")
         .call(wrap, constants.defaultWrapHeaderWidth);
@@ -471,7 +471,7 @@ export default function DrawSolarGraph({
         `Altough space between the planets on the graph is accurate, it doesn't represent how much bigger the sun is.`
       )
       .attr("x", "50%")
-      .attr("y", 100)
+      .attr("y", 130)
       .attr("text-anchor", "middle")
       .attr("dominant-baseline", "start")
 
