@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useRef } from "react"
-import { isMobile } from "react-device-detect"
+import React, { useState, useEffect, useRef } from "react";
+import { isMobile } from "react-device-detect";
 
-import SlidingTextWithOpacityParallaxContainer from "../animations/sliding-text-with-opacity-parallax-container"
-import { constants } from "../../constants"
+import SlidingTextWithOpacityParallaxContainer from "../animations/sliding-text-with-opacity-parallax-container";
+import { constants } from "../../constants";
 
-export default function StartingTextComponent({ scrollPosition }) {
+export default function StartingTextComponent({ scrollPosition, display }) {
   return (
     <SlidingTextWithOpacityParallaxContainer
       containerStyle={{
         position: "fixed",
+        display: display ? "inherit" : "none",
         margin: "auto",
-        top: "10%",
+        top: "5%",
         width: "100%",
         textAlign: "center",
         maxWidth: constants.defaultParagraphWidth,
@@ -28,5 +29,5 @@ export default function StartingTextComponent({ scrollPosition }) {
       fontSize={40}
       scrollPosition={scrollPosition}
     ></SlidingTextWithOpacityParallaxContainer>
-  )
+  );
 }

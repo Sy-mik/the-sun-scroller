@@ -196,7 +196,7 @@ export default function DrawSolarGraph({
       .select("#solarSystemGraph")
       .insert("svg")
       .attr("width", w)
-      .attr("height", 15 * svgHeight); //change to 10* if you want to show the real one
+      .attr("height", 13 * svgHeight); //change to 10* if you want to show the real one
 
     // sun
     svg

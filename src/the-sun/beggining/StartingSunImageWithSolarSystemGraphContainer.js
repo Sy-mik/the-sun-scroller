@@ -51,11 +51,11 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
     if (zoomScale > 0 && scale(zoomScale) >= 0) {
       setVisible(true);
       setTranslateSunY(scale(zoomScale));
-      setSunImageOpacity(1-solarSystemGraphOpacity)
+      setSunImageOpacity(1 - solarSystemGraphOpacity);
     }
     let graphScale = scrollPosition - getOffset(solarSystemRef) + 100;
     setSolarSystemGraphOpacity(opacityScale(graphScale));
-    setSunImageOpacity(1-solarSystemGraphOpacity)
+    setSunImageOpacity(1 - solarSystemGraphOpacity);
     if (scrollPosition > graphEndingRef.current.offsetTop) {
       setSunImageOpacity(0);
       setVisible(false);
@@ -65,9 +65,10 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
   return (
     <div
       style={{
-        height: 16 * innerHeight,
+        height: 16.5 * innerHeight,
         zIndex: 99,
         width: "100%",
+        backgroundColor:'black'
       }}
     >
       <div ref={ref}></div>
@@ -77,13 +78,14 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
         innerHeight={innerHeight}
         innerWidth={innerWidth}
         scrollPosition={scrollPosition}
-        solarSystemGraphOpacity={1- solarSystemGraphOpacity}
+        solarSystemGraphOpacity={1 - solarSystemGraphOpacity}
         sunImage={sunImage}
         zoom={translateSunY}
       ></StartingImageComponent>
 
-      <div style={{ visibility: visible ? "visible" : "hidden" }}>
+      <div style={{ display: visible ? "block" : "none" }}>
         <StartingTextComponent
+        display={visible}
           scrollPosition={scrollPosition}
         ></StartingTextComponent>
       </div>

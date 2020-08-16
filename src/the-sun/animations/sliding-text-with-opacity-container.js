@@ -63,7 +63,7 @@ export default function SlidingTextWithOpacityContainer({
   }, [scrollPosition]);
 
   return (
-    <div ref={ref} style={{ height: height + "px", zIndex: 100 }}>
+    <div ref={ref} style={{ height: height , zIndex: 100 }}>
       <SlidingTextWithOpacity
         height={height}
         headerText={headerText}

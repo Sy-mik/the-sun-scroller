@@ -40,7 +40,7 @@ export default function SolarSystemGraph({
   }
 
   return (
-    <div ref={ref} id={"graphContainer"} style={{ opacity: opacity }}>
+    <div ref={ref} id={"graphContainer"} style={{ opacity: opacity, }}>
       <DrawSolarGraph
         innerWidth={windowWidth}
         innerHeight={windowHeight}

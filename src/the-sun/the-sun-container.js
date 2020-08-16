@@ -5,6 +5,7 @@ import HistoryOfSunScaleContainer from "./historyOfSunScale/history-of-sun-scale
 import SlidingTextWithOpacityContainer from "./animations/sliding-text-with-opacity-container";
 import SuperBigHeaderComponent from "./beggining/SuperBigHeaderComponent";
 import SpinningSunContainer from "./spinningSun/spinning-sun-container";
+import StellarNurseryContainer from "./historyOfSunScale/stellarNursery";
 
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState();
@@ -40,6 +41,7 @@ export default function TheSunContainer() {
         scrollPosition - {scrollPosition}{" "}
       </p> */}
       <SuperBigHeaderComponent></SuperBigHeaderComponent>
+
       <StartingSunImageWithSolarSystemGraphContainer
         scrollPosition={scrollPosition}
         height={10000}
@@ -47,32 +49,51 @@ export default function TheSunContainer() {
         windowHeight={windowHeight}
         graphEndingRef={graphEndingRef}
       ></StartingSunImageWithSolarSystemGraphContainer>
+      <div
+        ref={graphEndingRef}
+        style={{ height: 0, backgroundColor: "black" }}
+      ></div>
+{/* 
+      <div style={{ width: "100%", backgroundColor: "black" }}>
+        <SlidingTextWithOpacityContainer
+          height={300}
+          fontSize={60}
+          windowHeight={windowHeight}
+          headerText={"History starts here"}
+          color={"white"}
+          scrollPosition={scrollPosition}
+        ></SlidingTextWithOpacityContainer>
+      </div> */}
 
-      <div ref={graphEndingRef} style={{ height: 0 }}></div>
- 
-      <SlidingTextWithOpacityContainer
-        height={300}
-        fontSize={60}
+      <div
+        style={{ height: 300, width: "100%", backgroundColor: "black",zIndex:0, }}
+      ></div>
+      <div style={{ backgroundColor: "black", zIndex:0, }}>
+        <SlidingTextWithOpacityContainer
+          height={300}
+          fontStyle={"italic"}
+          windowHeight={windowHeight}
+          headerText={"5 billions years ago"}
+          color={"white"}
+          scrollPosition={scrollPosition}
+        ></SlidingTextWithOpacityContainer>
+      </div>
+      <StellarNurseryContainer
+        scrollPosition={scrollPosition}
         windowHeight={windowHeight}
-        headerText={"History starts here"}
-        color={"white"}
-        scrollPosition={scrollPosition}
-      ></SlidingTextWithOpacityContainer>
-      <div style={{ height: 200 }}></div>
+        windowWidth={windowWidth}
+      ></StellarNurseryContainer>
 
-      <SlidingTextWithOpacityContainer
-        height={300}
-        fontStyle={"italic"}
-        windowHeight={windowHeight}
-        headerText={"5 billions years ago"}
-        color={"white"}
+       <SpinningSunContainer
+        innerWidth={windowWidth}
+        innerHeight={windowHeight}
         scrollPosition={scrollPosition}
-      ></SlidingTextWithOpacityContainer>
+      ></SpinningSunContainer>
 
-      <HistoryOfSunScaleContainer //
+      {/* <HistoryOfSunScaleContainer //
         scrollPosition={scrollPosition}
-      ></HistoryOfSunScaleContainer>
-
+      ></HistoryOfSunScaleContainer> */}
+      {/*
       <SlidingTextWithOpacityContainer
         height={300}
         fontStyle={"italic"}
@@ -81,7 +102,7 @@ export default function TheSunContainer() {
         color={"white"}
         scrollPosition={scrollPosition}
       ></SlidingTextWithOpacityContainer>
-      <div style={{ height: 200 }}></div>
+      <div style={{ height: 200 }}></div> */}
 
       {/* <MeetTheProtostarContainer2
         windowWidth={windowWidth}
@@ -89,7 +110,7 @@ export default function TheSunContainer() {
         scrollPosition={scrollPosition}
       ></MeetTheProtostarContainer2> */}
 
-      <div style={{ height: windowHeight / 2, backgroundColor: "black" }}>
+      {/* <div style={{ height: windowHeight / 2, backgroundColor: "black" }}>
         <SlidingTextWithOpacityContainer
           height={500}
           windowHeight={windowHeight}
@@ -98,15 +119,11 @@ export default function TheSunContainer() {
           scrollPosition={scrollPosition}
         ></SlidingTextWithOpacityContainer>
       </div>
-      <div style={{ height: "200px", backgroundColor: "black" }}></div> 
+      <div style={{ height: "200px", backgroundColor: "black" }}></div>  */}
 
       {/* <div style={{ height: "5000px" }}></div> */}
       {/* <div style={{ height: "20px" }}></div> */}
-      <SpinningSunContainer
-        innerWidth={windowWidth}
-        innerHeight={windowHeight}
-        scrollPosition={scrollPosition}
-      ></SpinningSunContainer>
+     
     </div>
   );
 }
