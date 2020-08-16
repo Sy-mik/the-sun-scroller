@@ -47,16 +47,17 @@ export default function StellarNurseryContainer({
         height: windowHeight * 5,
         width: "100%",
         transformOrigin: "center",
+        backgroundColor:'black'
       }}
     >
       <img
         style={{
           opacity: backgroundOpacity,
           position: "fixed",
-          width: "100%",
-          height: "100%",
+          // height: "100%",
           top: 0,
-          zIndex: -1,
+          zIndex:0,
+          backgroundSize:'cover'
         }}
         src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2017/06/a_stormy_stellar_nursery/17005259-1-eng-GB/A_stormy_stellar_nursery_pillars.jpg"
         alt=""
@@ -79,8 +80,8 @@ export default function StellarNurseryContainer({
           fill="white"
           dominantBaseline="middle"
           textAnchor="middle"
-          fontSize="2em"
-          letter-spacing="10"
+          fontSize="1.8em"
+          letter-spacing="7"
           fontWeight="600"
         >
           Steallar Nursery

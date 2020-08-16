@@ -1,0 +1,28 @@
+.zoomedIcon {
+    font-synthesis: none;
+-moz-font-feature-settings: 'kern';
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+direction: ltr;
+text-align: left;
+}
+
+.maskedBackground{
+background: url("https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg") no-repeat;
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+}
+
+.item--css-background-clip .demo {
+    width: 200px;
+    height: 200px;
+    background: url(https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg) no-repeat;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  .item {
+    background: url(https://img-fotki.yandex.ru/get/5607/5091629.6b/0_612e6_b9039c0d_M.jpg) no-repeat;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    }

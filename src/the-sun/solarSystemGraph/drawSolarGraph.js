@@ -138,10 +138,10 @@ export default function DrawSolarGraph({
       name: "jupiter",
       moons: [
         // jupiter
-        { R: 60, r: 2, speed: -7.7, phi0: 25 }, // io
-        { R: 2 * 36, r: 1, speed: -2.45, phi0: 95 }, // europa
-        { R: 2 * 49, r: 3, speed: -1.1, phi0: 125 }, // ganymede
-        { R: 2 * 79, r: 2, speed: -0.5, phi0: 315 }, // callisto
+        // { R: 60, r: 2, speed: -7.7, phi0: 25 }, // io
+        // { R: 2 * 36, r: 1, speed: -2.45, phi0: 95 }, // europa
+        // { R: 2 * 49, r: 3, speed: -1.1, phi0: 125 }, // ganymede
+        // { R: 2 * 79, r: 2, speed: -0.5, phi0: 315 }, // callisto
       ],
     },
     {
@@ -156,13 +156,13 @@ export default function DrawSolarGraph({
       name: "saturn",
       moons: [
         // saturn
-        { R: 28, r: 1, speed: -4.1, phi0: 120 }, // mimas
-        { R: 33, r: 1, speed: -3.9, phi0: 20 }, // enceladus
-        { R: 38, r: 1, speed: -3.6, phi0: 0 }, // tethys
-        { R: 44, r: 1, speed: -3.2, phi0: 100 }, // dione
-        { R: 58, r: 2, speed: -2.9, phi0: 300 }, // rhea
-        { R: 98, r: 5, speed: -1.3, phi0: 180 }, // titan
-        { R: 188, r: 2, speed: -0.1, phi0: 10 }, // lapetus
+        // { R: 28, r: 1, speed: -4.1, phi0: 120 }, // mimas
+        // { R: 33, r: 1, speed: -3.9, phi0: 20 }, // enceladus
+        // { R: 38, r: 1, speed: -3.6, phi0: 0 }, // tethys
+        // { R: 44, r: 1, speed: -3.2, phi0: 100 }, // dione
+        // { R: 58, r: 2, speed: -2.9, phi0: 300 }, // rhea
+        // { R: 98, r: 5, speed: -1.3, phi0: 180 }, // titan
+        // { R: 188, r: 2, speed: -0.1, phi0: 10 }, // lapetus
       ],
     },
     {

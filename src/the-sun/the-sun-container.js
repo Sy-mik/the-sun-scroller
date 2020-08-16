@@ -78,17 +78,20 @@ export default function TheSunContainer() {
           scrollPosition={scrollPosition}
         ></SlidingTextWithOpacityContainer>
       </div>
+      <div style={{height:500}}>
       <StellarNurseryContainer
         scrollPosition={scrollPosition}
         windowHeight={windowHeight}
         windowWidth={windowWidth}
       ></StellarNurseryContainer>
 
-       <SpinningSunContainer
+</div>
+
+       {/* <SpinningSunContainer
         innerWidth={windowWidth}
         innerHeight={windowHeight}
         scrollPosition={scrollPosition}
-      ></SpinningSunContainer>
+      ></SpinningSunContainer> */}
 
       {/* <HistoryOfSunScaleContainer //
         scrollPosition={scrollPosition}
