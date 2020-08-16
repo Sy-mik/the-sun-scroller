@@ -54,7 +54,7 @@ export default function StellarNurseryContainer({
         style={{
           opacity: backgroundOpacity,
           position: "fixed",
-          // height: "100%",
+          height: "100%",
           top: 0,
           zIndex:0,
           backgroundSize:'cover'

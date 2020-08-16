@@ -53,7 +53,7 @@ export default function TheSunContainer() {
         ref={graphEndingRef}
         style={{ height: 0, backgroundColor: "black" }}
       ></div>
-{/* 
+      {/* 
       <div style={{ width: "100%", backgroundColor: "black" }}>
         <SlidingTextWithOpacityContainer
           height={300}
@@ -65,29 +65,39 @@ export default function TheSunContainer() {
         ></SlidingTextWithOpacityContainer>
       </div> */}
 
-      <div
-        style={{ height: 300, width: "100%", backgroundColor: "black",zIndex:0, }}
-      ></div>
-      <div style={{ backgroundColor: "black", zIndex:0, }}>
+      <div style={{ backgroundColor: "black", zIndex: 0 }}>
         <SlidingTextWithOpacityContainer
           height={300}
           fontStyle={"italic"}
           windowHeight={windowHeight}
-          headerText={"5 billions years ago"}
+          headerText={"Solar storms"}
           color={"white"}
           scrollPosition={scrollPosition}
         ></SlidingTextWithOpacityContainer>
       </div>
-      <div style={{height:500}}>
-      <StellarNurseryContainer
+      <div
+        style={{
+          height: 300,
+          width: "100%",
+          backgroundColor: "black",
+          zIndex: 0,
+        }}
+      ></div>
+
+      <SpinningSunContainer
+        innerWidth={windowWidth}
+        innerHeight={windowHeight}
+        scrollPosition={scrollPosition}
+      ></SpinningSunContainer>
+      <div style={{ height: 500 }}>
+        {/* <StellarNurseryContainer
         scrollPosition={scrollPosition}
         windowHeight={windowHeight}
         windowWidth={windowWidth}
-      ></StellarNurseryContainer>
+      ></StellarNurseryContainer> */}
+      </div>
 
-</div>
-
-       {/* <SpinningSunContainer
+      {/* <SpinningSunContainer
         innerWidth={windowWidth}
         innerHeight={windowHeight}
         scrollPosition={scrollPosition}
@@ -126,7 +136,6 @@ export default function TheSunContainer() {
 
       {/* <div style={{ height: "5000px" }}></div> */}
       {/* <div style={{ height: "20px" }}></div> */}
-     
     </div>
   );
 }
