@@ -6,6 +6,7 @@ import SlidingTextWithOpacityContainer from "./animations/sliding-text-with-opac
 import SuperBigHeaderComponent from "./beggining/SuperBigHeaderComponent";
 import SpinningSunContainer from "./spinningSun/spinning-sun-container";
 import StellarNurseryContainer from "./historyOfSunScale/stellarNursery";
+import MeetTheProtostarContainer2 from "./protostar/meetTheProtostart2";
 
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState();
@@ -41,8 +42,13 @@ export default function TheSunContainer() {
         scrollPosition - {scrollPosition}{" "}
       </p> */}
       <SuperBigHeaderComponent></SuperBigHeaderComponent>
+        {/* <StellarNurseryContainer
+        scrollPosition={scrollPosition}
+        windowHeight={windowHeight}
+        windowWidth={windowWidth}
+      ></StellarNurseryContainer> */}
 
-      <StartingSunImageWithSolarSystemGraphContainer
+   <StartingSunImageWithSolarSystemGraphContainer
         scrollPosition={scrollPosition}
         height={10000}
         windowWidth={windowWidth}
@@ -52,7 +58,7 @@ export default function TheSunContainer() {
       <div
         ref={graphEndingRef}
         style={{ height: 0, backgroundColor: "black" }}
-      ></div>
+      ></div> 
       {/* 
       <div style={{ width: "100%", backgroundColor: "black" }}>
         <SlidingTextWithOpacityContainer
@@ -90,11 +96,6 @@ export default function TheSunContainer() {
         scrollPosition={scrollPosition}
       ></SpinningSunContainer>
       <div style={{ height: 500 }}>
-        {/* <StellarNurseryContainer
-        scrollPosition={scrollPosition}
-        windowHeight={windowHeight}
-        windowWidth={windowWidth}
-      ></StellarNurseryContainer> */}
       </div>
 
       {/* <SpinningSunContainer
@@ -117,11 +118,7 @@ export default function TheSunContainer() {
       ></SlidingTextWithOpacityContainer>
       <div style={{ height: 200 }}></div> */}
 
-      {/* <MeetTheProtostarContainer2
-        windowWidth={windowWidth}
-        windowHeight={windowHeight}
-        scrollPosition={scrollPosition}
-      ></MeetTheProtostarContainer2> */}
+   
 
       {/* <div style={{ height: windowHeight / 2, backgroundColor: "black" }}>
         <SlidingTextWithOpacityContainer

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import wrap from "../wrapText";
+import "./maskedText.css";
 export default function MeetTheProtostarContainer2({
   scrollPosition,
   windowHeight,
@@ -73,6 +74,7 @@ export default function MeetTheProtostarContainer2({
             <rect width="100%" height="100%" fill="#fff" />
 
             <text
+              className="text"
               id="meetTheProtostartText"
               style={{ transformOrigin: "center" }}
               x="50%"

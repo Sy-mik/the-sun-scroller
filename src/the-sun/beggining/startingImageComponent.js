@@ -13,7 +13,7 @@ export default function StartingImageComponent({
   innerWidth,
   innerHeight,
   zoom,
-  solarSystemGraphOpacity,
+  sunImageOpacity,
   sunImage,
 }) {
   return (
@@ -22,10 +22,12 @@ export default function StartingImageComponent({
         position: "sticky",
         top: 0,
         width: "100%",
-        top: "75%",
+        // left:'50%',
+        top: isMobile ? "85%" : "75%",
         display: "flex",
-        // alignContent: "center",
-        // alignItems: "center",
+        transform: `translate(0px, ${zoom}px)`,
+        alignContent: "center",
+        alignItems: "center",
       }}
     >
       <img
@@ -35,8 +37,8 @@ export default function StartingImageComponent({
           maxHeight: innerWidth,
           marginLeft: "auto",
           marginRight: "auto",
-          transform: `translate(0px, ${zoom}px)`,
-          opacity: solarSystemGraphOpacity,
+          // transform: `translate(0px, ${zoom}px)`,
+          opacity: sunImageOpacity,
         }}
         src={sunImage}
       ></img>
