@@ -3,13 +3,12 @@ import SlidingTextWithOpacityParallaxContainer from "../animations/sliding-text-
 import StartingImageComponent from "./startingImageComponent";
 import StartingTextComponent from "../textComponents/startingTextComponent";
 import * as d3 from "d3";
-import SolarSystemGraph from "../solarSystemGraph/solarSystemGraph";
+import SolarSystemGraph from "../solarSystemGraph/SolarSystemGraph";
 import { isMobile } from "react-device-detect";
 import SuperBigHeaderComponent from "./SuperBigHeaderComponent";
 
-export default function StartingSunImageWithSolarSystemGraphContainer({
+export default function SolarSystemGraphContainer({
   scrollPosition,
-  height,
   windowWidth,
   windowHeight,
   graphEndingRef,
@@ -21,8 +20,9 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
   const [sunImage, setSunImage] = useState(
     "https://static01.nyt.com/images/2020/03/10/science/25OBS-SUNSPOT1/25TB-SUNSPOT1-mediumSquareAt3X.jpg"
   );
+
   const [translateSunY, setTranslateSunY] = useState(0);
-  const [solarSystemGraphOpacity, setSolarSystemGraphOpacity] = useState(1);
+  const [solarSystemGraphOpacity, setSolarSystemGraphOpacity] = useState(0);
   const [sunImageOpacity, setSunImageOpacity] = useState(1);
 
   const [visible, setVisible] = useState(false);
@@ -34,11 +34,7 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
     } else return 100000;
   };
   const exponent = isMobile ? 1 : 1;
-  const scale = d3
-    .scalePow()
-    .exponent(2)
-    .domain([0, 2500])
-    .range([0, 500]); //d3.scalePow().exponent(4).domain([0, 2000]).range([1, 0]);
+  const scale = d3.scalePow().exponent(2).domain([0, 2500]).range([0, 500]); //d3.scalePow().exponent(4).domain([0, 2000]).range([1, 0]);
 
   const opacityScale = d3
     .scalePow()
@@ -48,7 +44,9 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
 
   useEffect(() => {
     let zoomScale = scrollPosition - getOffset(ref);
-    setTranslateSunY(scale(zoomScale));
+    if (scale(zoomScale) <= innerHeight) {
+      setTranslateSunY(scale(zoomScale));
+    }
     if (zoomScale > 0 && scale(zoomScale) >= 0) {
       setVisible(true);
       setSunImageOpacity(1 - solarSystemGraphOpacity);
@@ -60,7 +58,7 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
       setSunImageOpacity(0);
       setVisible(false);
     }
-  }, [opacityScale, scale, scrollPosition]);
+  }, [graphEndingRef, innerHeight, opacityScale, scale, scrollPosition, solarSystemGraphOpacity]);
 
   return (
     <div
@@ -74,7 +72,6 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
       <div ref={ref}></div>
 
       <StartingImageComponent
-        height={height}
         innerHeight={innerHeight}
         innerWidth={innerWidth}
         scrollPosition={scrollPosition}
@@ -97,7 +94,6 @@ export default function StartingSunImageWithSolarSystemGraphContainer({
         windowHeight={windowHeight}
         scrollPosition={scrollPosition}
         opacity={solarSystemGraphOpacity}
-        height={height}
         endingGraphRef={graphEndingRef}
       ></SolarSystemGraph>
     </div>

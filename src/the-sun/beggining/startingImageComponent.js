@@ -3,13 +3,11 @@ import SlidingTextWithOpacityParallaxContainer from "../animations/sliding-text-
 import SpinningSunContainer from "../spinningSun/spinning-sun-container";
 import StartingTextComponent from "../textComponents/startingTextComponent";
 import * as d3 from "d3";
-import SolarSystemGraph from "../solarSystemGraph/solarSystemGraph";
+import SolarSystemGraph from "../solarSystemGraph/SolarSystemGraph";
 import { isMobile } from "react-device-detect";
 import SuperBigHeaderComponent from "./SuperBigHeaderComponent";
 
 export default function StartingImageComponent({
-  scrollPosition,
-  height,
   innerWidth,
   innerHeight,
   zoom,

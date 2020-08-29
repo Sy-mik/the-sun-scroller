@@ -17,7 +17,7 @@ export default function SpinningSunContainer({
   const [sunImage, setSunImage] = useState(images("./" + `image${1}.jpg`));
   // images.forEach(image => (new Image().src = image.src));
   const preloadedImages = useRef([]);
-  const height = 2 * innerHeight;
+  let height = 2 * innerHeight;
   const scrollScale = d3
     .scaleLinear()
     .domain([0, (1 / 2) * height])
@@ -28,7 +28,7 @@ export default function SpinningSunContainer({
   const getOffset = () => {
     if (ref.current) {
       return ref.current.offsetTop;
-    } else return 100000;
+    } else return 0;
   };
 
   let sectionEnding = getOffset() + 1500;
@@ -107,47 +107,3 @@ export default function SpinningSunContainer({
     </div>
   );
 }
-
-// function showOldSun() {
-//   const newState = Object.assign({}, sunStyle)
-//   newState.transition = "opacity 1s"
-//   newState.opacity = "1"
-//   setSunStyle(newState)
-// }
-
-// let [spinningSunStyle, setSpinningSunStyle] = useState({
-//   position: "fixed",
-//   left: "20%",
-//   top: "8%",
-//   maxHeight: "100vh",
-//   margin: 0,
-//   maxWidth: "100vh",
-//   // display: 'none',
-//   // transform: `translate(50%, -50%)`,
-//   zIndex: 1,
-// })
-
-// function hideOldSun() {
-//   const newState = Object.assign({}, sunStyle)
-//   newState.opacity = "0"
-//   newState.transition = "opacity 1s"
-//   setSunStyle(newState) //
-// }
-
-// function setHideSpinningSunStyle() {
-//   const newState = Object.assign({}, spinningSunStyle)
-//   // if (newState.opacity == 0) {
-//   newState.transition = "opacity 1s"
-//   newState.opacity = "0"
-//   setSpinningSunStyle(newState)
-//   // }
-// }
-
-// function setShowSpinningSunStyle() {
-//   const newState = Object.assign({}, spinningSunStyle)
-//   // if (newState.opacity == 0) {
-//   newState.transition = "opacity 1s"
-//   newState.opacity = "1"
-//   setSpinningSunStyle(newState)
-//   // }
-// }

@@ -6,7 +6,7 @@ export default function SlidingTextWithOpacity({
   text,
   fontSize,
   opacity,
-  style: fontStyle,
+  fontStyle,
   headerColor,
   color,
   containerStyle,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./solarSystemGraph.css";
-import DrawSolarGraph from "./drawSolarGraph";
+import DrawSolarGraph from "./SolarGraph";
 export default function SolarSystemGraph({
   opacity,
   scrollPosition,
@@ -60,6 +60,7 @@ export default function SolarSystemGraph({
           right: 20,
           backgroundColor: "transparent",
           border: "none",
+          color: "gray",
         }}
       >
         Beggining
@@ -77,8 +78,7 @@ export default function SolarSystemGraph({
           zIndex: 0,
           backgroundColor: "transparent",
           border: "none",
-
-          // color: "darkgray",
+          color: "gray",
           // fill: "white",
         }}
       >
