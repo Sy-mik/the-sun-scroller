@@ -68,8 +68,7 @@ export function DrawRealSizeGraph({
       .duration(animationDuration) // miliseconds
       .attr("r", planetRealScale(sunSize));
 
-    d3.select("#" + planet.name)
-      .style("opacity", 0);
+    d3.select("#" + planet.name).style("opacity", 0);
 
     var info = svg.append("g");
     info
@@ -166,6 +165,29 @@ export function DrawRealSizeGraph({
     .style("opacity", 1);
 
   const additionalInfoOffset = 3 * 55;
+
+  svg
+    .append("text")
+    .attr("x", w / 2)
+    .attr("y", getRealScale(planets[0].realSizeR) + additionalInfoOffset) //1.5)
+    .attr("text-anchor", "middle")
+    .attr("font-size", constants.smallHeaderOnMobile)
+    .attr("fill", "darkgray")
+    .text("A day on the surface of Mercury lasts 176 Earth days.")
+    .call(wrap, constants.defaultWrapHeaderWidth);
+
+  svg
+    .append("text")
+    .attr("x", w / 2)
+    .attr("y", getRealScale(planets[1].realSizeR) + additionalInfoOffset) //1.5)
+    .attr("text-anchor", "middle")
+    .attr("font-size", constants.smallHeaderOnMobile)
+    .attr("fill", "darkgray")
+    .text(
+      "Venus rotate in the opposite direction to other planets. This is known as a retrograde rotation and may have been caused by a collision with an asteroid."
+    )
+    .call(wrap, constants.defaultWrapHeaderWidth);
+
   svg
     .append("text")
     .attr("x", w / 2)
@@ -188,6 +210,19 @@ export function DrawRealSizeGraph({
     .text(
       "Mars is home to the tallest mountain in the solar system." +
         " It is 21km high and 600km in diameter."
+    )
+    .call(wrap, constants.defaultWrapHeaderWidth);
+
+  svg
+    .append("text")
+    .attr("x", w / 2)
+    .attr("y", getRealScale(planets[4].realSizeR) + additionalInfoOffset) //1.5)
+    .attr("text-anchor", "middle")
+    .attr("font-size", constants.smallHeaderOnMobile)
+    .attr("fill", "darkgray")
+    .text(
+      "The Great Red Spot is a huge storm." +
+        "It has raged for at least 350 years."
     )
     .call(wrap, constants.defaultWrapHeaderWidth);
 }

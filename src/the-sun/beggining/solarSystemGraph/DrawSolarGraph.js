@@ -87,7 +87,7 @@ export default function DrawSolarGraph({
     return () => {
       svg.remove();
     };
-  }, [drawRealSizeGraph, innerHeight, innerWidth]);
+  }, [drawRealSizeGraph, innerHeight, innerWidth, ]);
   // insert svg element
 
   function getRealScale(value) {
