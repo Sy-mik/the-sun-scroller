@@ -164,7 +164,7 @@ export function DrawRealSizeGraph({
     .duration(animationDuration)
     .style("opacity", 1);
 
-  const additionalInfoOffset = 3 * 55;
+  const additionalInfoOffset = 3 * 50;
 
   svg
     .append("text")
@@ -222,7 +222,7 @@ export function DrawRealSizeGraph({
     .attr("fill", "darkgray")
     .text(
       "The Great Red Spot is a huge storm." +
-        "It has raged for at least 350 years."
+        " It has raged for at least 350 years."
     )
     .call(wrap, constants.defaultWrapHeaderWidth);
 }

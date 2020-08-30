@@ -15,15 +15,17 @@ export default function SpinningSunContainer({
   const [imgSrcIteration, setImgSrcIteration] = useState(1);
   const [prevScrollPosition, setPrevScrollPosition] = useState(0);
   const [sunImage, setSunImage] = useState(images("./" + `image${1}.jpg`));
+  const ref = useRef();
+  const ending = useRef();
   // images.forEach(image => (new Image().src = image.src));
   const preloadedImages = useRef([]);
   let height = 2 * innerHeight;
+  let amountOfImages = 50;
+
   const scrollScale = d3
     .scaleLinear()
     .domain([0, (1 / 2) * height])
-    .range([0, 200]);
-  let amountOfImages = 200;
-  const ref = useRef();
+    .range([0, amountOfImages]);
 
   const getOffset = () => {
     if (ref.current) {
@@ -31,31 +33,27 @@ export default function SpinningSunContainer({
     } else return 0;
   };
 
-  let sectionEnding = getOffset() + 1500;
+  const getOffsetEnding = () => {
+    if (ending.current) {
+      return ending.current.offsetTop;
+    } else return 0;
+  };
+
+  let sectionEnding = getOffset() + getOffsetEnding();
 
   function fetchPreviousSunImage() {
     if (imgSrcIteration >= 0 && imgSrcIteration <= amountOfImages) {
       // setImgSrcIteration(imgSrcIteration - 1);
       setImgSrcIteration(parseInt(scrollScale(scrollPosition - getOffset())));
-      if (
-        preloadedImages.current[imgSrcIteration] &&
-        preloadedImages.current[imgSrcIteration].src
-      ) {
-        setSunImage(preloadedImages.current[imgSrcIteration].src);
-      }
+      setSunImage(preloadedImages.current[imgSrcIteration].src);
     }
   }
 
   function fetchNewSunImage() {
     if (imgSrcIteration >= 0 && imgSrcIteration < amountOfImages - 1) {
       setImgSrcIteration(parseInt(scrollScale(scrollPosition - getOffset())));
+      setSunImage(preloadedImages.current[imgSrcIteration].src);
 
-      if (
-        preloadedImages.current[imgSrcIteration] &&
-        preloadedImages.current[imgSrcIteration].src
-      ) {
-        setSunImage(preloadedImages.current[imgSrcIteration].src);
-      }
     }
   }
 
@@ -84,9 +82,11 @@ export default function SpinningSunContainer({
     } else if (isWithinBoundaries() && isScrollingDown()) {
       fetchNewSunImage();
     }
+    
     if (imgSrcIteration > amountOfImages) {
       setImgSrcIteration(amountOfImages - 1);
     }
+
     setPrevScrollPosition(scrollPosition);
   }, [scrollPosition, prevScrollPosition]);
 
@@ -176,7 +176,7 @@ export default function SpinningSunContainer({
         </div>
       </div>
 
-      <div style={{ height: 2000 }}></div>
+      <div ref={ending} style={{ height: 2000 }}></div>
     </div>
   );
 }
