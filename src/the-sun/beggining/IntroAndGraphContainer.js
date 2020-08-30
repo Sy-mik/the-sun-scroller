@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import SlidingTextWithOpacityParallaxContainer from "../animations/sliding-text-with-opacity-parallax-container";
 import StartingImageComponent from "./startingImageComponent";
 import StartingTextComponent from "../textComponents/startingTextComponent";
 import * as d3 from "d3";
-import SolarSystemGraph from "../solarSystemGraph/SolarSystemGraph";
 import { isMobile } from "react-device-detect";
-import SuperBigHeaderComponent from "./SuperBigHeaderComponent";
+import SolarSystemGraph from "./solarSystemGraph/SolarSystemGraph";
 
-export default function SolarSystemGraphContainer({
+export default function IntroAndGraphContainer({
   scrollPosition,
   windowWidth,
   windowHeight,
@@ -58,7 +56,14 @@ export default function SolarSystemGraphContainer({
       setSunImageOpacity(0);
       setVisible(false);
     }
-  }, [graphEndingRef, innerHeight, opacityScale, scale, scrollPosition, solarSystemGraphOpacity]);
+  }, [
+    graphEndingRef,
+    innerHeight,
+    opacityScale,
+    scale,
+    scrollPosition,
+    solarSystemGraphOpacity,
+  ]);
 
   return (
     <div

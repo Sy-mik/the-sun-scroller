@@ -10,7 +10,6 @@ export default function DrawSolarGraph({
   innerWidth,
   drawRealSizeGraph,
 }) {
-  // establish variables
   var w = innerWidth;
   const sizeMulitplier = 25;
   const animationDuration = 700;
@@ -46,7 +45,6 @@ export default function DrawSolarGraph({
   var t0 = new Date().setHours(0, 0, 0, 0);
 
   // planets and moons
-
   useEffect(() => {
     var scale = getRealScale;
 
@@ -97,9 +95,9 @@ export default function DrawSolarGraph({
   }
 
   return (
-    <div style={{}}>
+    <>
       <div id="solarSystemGraph"></div>
-      <div style={{ height: 1800, width: 0 }}></div>
-    </div>
+      <div style={{ height: 2 * innerHeight }}></div>
+    </>
   );
 }

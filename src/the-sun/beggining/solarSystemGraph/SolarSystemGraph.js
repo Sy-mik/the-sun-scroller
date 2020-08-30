@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./solarSystemGraph.css";
-import DrawSolarGraph from "./SolarGraph";
+import DrawSolarGraph from "./DrawSolarGraph.js";
 export default function SolarSystemGraph({
   opacity,
   scrollPosition,

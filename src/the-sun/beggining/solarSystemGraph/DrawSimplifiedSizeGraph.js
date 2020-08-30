@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import { planets } from "./Planets";
-import wrap from "../wrapText";
-import { constants } from "../../constants";
+import wrap from "../../wrapText";
+import { constants } from "../../../constants";
 
 export function DrawSimplifiedSizeGraph({
   svg,

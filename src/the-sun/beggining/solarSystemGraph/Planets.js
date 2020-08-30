@@ -1,11 +1,11 @@
-import earthIcon from "../../assets/icons/earth.svg";
-import jupiterIcon from "../../assets/icons/jupiter.svg";
-import marsIcon from "../../assets/icons/mars.svg";
-import saturnIcon from "../../assets/icons/saturn.svg";
-import uranusIcon from "../../assets/icons/uranus.svg";
-import mercuryIcon from "../../assets/icons/mercury.svg";
-import venusIcon from "../../assets/icons/venus.svg";
-import neptuneIcon from "../../assets/icons/neptune.svg";
+import earthIcon from "../../../assets/icons/earth.svg";
+import jupiterIcon from "../../../assets/icons/jupiter.svg";
+import marsIcon from "../../../assets/icons/mars.svg";
+import saturnIcon from "../../../assets/icons/saturn.svg";
+import uranusIcon from "../../../assets/icons/uranus.svg";
+import mercuryIcon from "../../../assets/icons/mercury.svg";
+import venusIcon from "../../../assets/icons/venus.svg";
+import neptuneIcon from "../../../assets/icons/neptune.svg";
 
 const spaceBetweenThePlanets = 65000000;
 

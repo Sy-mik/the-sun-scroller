@@ -1,7 +1,7 @@
 import { planets } from "./Planets";
 import * as d3 from "d3";
-import wrap from "../wrapText";
-import { constants } from "../../constants";
+import wrap from "../../wrapText";
+import { constants } from "../../../constants";
 
 export function DrawRealSizeGraph({
   svg,
