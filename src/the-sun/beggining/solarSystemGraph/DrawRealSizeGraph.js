@@ -121,20 +121,6 @@ export function DrawRealSizeGraph({
     });
   }, 40);
 
-  svg
-    .append("text")
-    .text(`One pixel of a planet is ${parseInt(revertredPlanetScale(1) / 2)}km`)
-    .attr("x", w / 2)
-    .attr("y", getRealScale(sunSize) + 50) //1.5)
-    .attr("text-anchor", "middle")
-    .attr("font-size", 30)
-    .attr("fill", "white")
-    .style("opacity", 0)
-    .attr("width", "20")
-    .transition()
-    .duration(animationDuration)
-    .style("opacity", 1)
-    .call(wrap, constants.defaultWrapHeaderWidth);
 
   svg
     .append("text")
@@ -149,6 +135,22 @@ export function DrawRealSizeGraph({
     .transition()
     .duration(animationDuration)
     .style("opacity", 1);
+
+    svg
+    .append("text")
+    .text(`One pixel of a planet is ${parseInt(revertredPlanetScale(1) / 2)}km`)
+    .attr("x", w / 2)
+    .attr("y", getRealScale(planets[0].realSizeR) / 2) //1.5)
+    .attr("text-anchor", "middle")
+    .attr("font-size", 30)
+    .attr("fill", "white")
+    .style("opacity", 0)
+    .attr("width", "20")
+    .transition()
+    .duration(animationDuration)
+    .style("opacity", 1)
+    .call(wrap, constants.defaultWrapHeaderWidth);
+
 
   svg
     .append("text")
@@ -221,7 +223,7 @@ export function DrawRealSizeGraph({
     .attr("font-size", constants.smallHeaderOnMobile)
     .attr("fill", "darkgray")
     .text(
-      "The Great Red Spot is a huge storm." +
+      "The Great Red Spot on the Jupiter's surface is a huge storm." +
         " It has raged for at least 350 years."
     )
     .call(wrap, constants.defaultWrapHeaderWidth);

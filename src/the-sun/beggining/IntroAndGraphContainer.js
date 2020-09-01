@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import StartingImageComponent from "./startingImageComponent";
-import StartingTextComponent from "../textComponents/startingTextComponent";
+import StartingImageComponent from "./StartingImageComponent";
+import StartingTextComponent from "./StartingTextComponent";
 import * as d3 from "d3";
 import { isMobile } from "react-device-detect";
 import SolarSystemGraph from "./solarSystemGraph/SolarSystemGraph";

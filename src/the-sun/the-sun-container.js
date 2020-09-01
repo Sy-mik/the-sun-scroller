@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import SuperBigHeaderComponent from "./beggining/SuperBigHeaderComponent";
-import SpinningSunContainer from "./spinningSun/spinning-sun-container";
+import SpinningSunContainer from "./spinningSun/SpinningSunContainer";
 import IntroAndGraphContainer from "./beggining/IntroAndGraphContainer";
-
+import "./the-sun.css";
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState(0);
   const [width, height] = useWindowSize();
