@@ -5,7 +5,6 @@ export default function SpinningSunComponent({
   scrollPosition,
   innerHeight,
   innerWidth,
-  ref,
   sunImage,
   ending,
 }) {

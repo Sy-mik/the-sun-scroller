@@ -49,7 +49,7 @@ export default function SolarSystemGraph({
         height={height}
         offset={getOffset()}
       ></DrawSolarGraph>
-      <button
+      {/* <button
         className="onHoverClickableText"
         onClick={() => goToTop()}
         style={{
@@ -83,7 +83,7 @@ export default function SolarSystemGraph({
         }}
       >
         History
-      </button>
+      </button> */}
       {/* <div ref={endingGraphRef} style={{ height: windowHeight*2, width:0 }}></div> */}
     </div>
   );

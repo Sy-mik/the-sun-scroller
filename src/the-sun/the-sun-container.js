@@ -3,6 +3,7 @@ import SuperBigHeaderComponent from "./beggining/SuperBigHeaderComponent";
 import SpinningSunContainer from "./spinningSun/SpinningSunContainer";
 import IntroAndGraphContainer from "./beggining/IntroAndGraphContainer";
 import "./the-sun.css";
+import LearnMoreChatContainer from "./learn-more-chat/LearnMoreChatContainer";
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState(0);
   const [width, height] = useWindowSize();
@@ -61,6 +62,7 @@ export default function TheSunContainer() {
         innerHeight={height}
         scrollPosition={scrollPosition}
       ></SpinningSunContainer>
+      <LearnMoreChatContainer></LearnMoreChatContainer>
     </div>
   );
 }

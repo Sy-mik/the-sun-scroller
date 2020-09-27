@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ismobile } from "react-device-detect";
 import * as d3 from "d3";
 import SpinningSunComponent from "./SpinningSunComponent";
+
 export default function SpinningSunContainer({
   scrollPosition,
   innerHeight,
@@ -15,8 +15,8 @@ export default function SpinningSunContainer({
   const ending = useRef();
   // images.forEach(image => (new Image().src = image.src));
   const preloadedImages = useRef([]);
-  const height = 2 * innerHeight;
   const amountOfImages = 50;
+
   const getOffset = () => {
     if (ref.current) {
       return ref.current.offsetTop;
@@ -90,11 +90,10 @@ export default function SpinningSunContainer({
         ending={ending}
         innerHeight={innerHeight}
         innerWidth={innerWidth}
-        ref={ref}
         scrollPosition={scrollPosition}
         sunImage={sunImage}
       ></SpinningSunComponent>
-      <div ref={ending} style={{ height: 2000 }}></div>
+      <div ref={ending} style={{ height: 300 }}></div>
     </div>
   );
 }

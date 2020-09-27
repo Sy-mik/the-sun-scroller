@@ -12,7 +12,6 @@ export default function StartingImageComponent({
     <div
       style={{
         position: "sticky",
-        top: 0,
         width: "100%",
         // left:'50%',
         top: isMobile ? "85%" : "75%",
@@ -23,6 +22,7 @@ export default function StartingImageComponent({
       }}
     >
       <img
+        alt="image of the sun"
         style={{
           zIndex: 99,
           maxWidth: innerHeight, // '100%',
@@ -31,7 +31,8 @@ export default function StartingImageComponent({
           marginRight: "auto",
           // transform: `translate(0px, ${zoom}px)`,
           opacity: sunImageOpacity,
-        }}
+        }
+      }
         src={sunImage}
       ></img>
     </div>
