@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./solarSystemGraph.css";
+import { isMobile } from "react-device-detect";
 import DrawSolarGraph from "./DrawSolarGraph.js";
 export default function SolarSystemGraph({
   opacity,
@@ -21,26 +22,21 @@ export default function SolarSystemGraph({
       return ref.current.offsetTop;
     } else return 100000;
   };
+
   useEffect(() => {
-    if (scrollPosition - getOffset() < 2 * windowHeight && drawRealSizeGraph) {
+    const comaprisonVal = isMobile ? windowWidth : windowHeight;
+    if (scrollPosition - getOffset() < 2 * comaprisonVal && drawRealSizeGraph) {
       setDrawRealSizeGraph(false);
     } else if (
-      scrollPosition - getOffset() >= 2 * windowHeight &&
+      scrollPosition - getOffset() >= 2 * comaprisonVal &&
       !drawRealSizeGraph
     ) {
       setDrawRealSizeGraph(true);
     }
-  }, [drawRealSizeGraph, scrollPosition]);
-  // insert svg element
-  function skipPlanets() {
-    scrollToRef(endingGraphRef);
-  }
-  function goToTop() {
-    scrollToRef(ref);
-  }
+  }, [scrollPosition]);
 
   return (
-    <div ref={ref} id={"graphContainer"} style={{ opacity: opacity, }}>
+    <div ref={ref} id={"graphContainer"} style={{ opacity: opacity }}>
       <DrawSolarGraph
         innerWidth={windowWidth}
         innerHeight={windowHeight}
