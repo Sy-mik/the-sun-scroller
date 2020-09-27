@@ -17,14 +17,15 @@ export default function SolarSystemGraph({
   const getOffset = () => {
     if (ref.current) {
       return ref.current.offsetTop;
-    } else return 0;
+    } else return 100000;
   };
 
   useEffect(() => {
-    if (scrollPosition - getOffset() < 2 * windowHeight && drawRealSizeGraph) {
+    const heightDifference = isMobile ? windowHeight : 2 * windowHeight;
+    if (scrollPosition - getOffset() < heightDifference && drawRealSizeGraph) {
       setDrawRealSizeGraph(false);
     } else if (
-      scrollPosition - getOffset() >= 2 * windowHeight &&
+      scrollPosition - getOffset() >= heightDifference &&
       !drawRealSizeGraph
     ) {
       setDrawRealSizeGraph(true);
