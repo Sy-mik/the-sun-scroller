@@ -4,6 +4,7 @@
   padding: 0;
   height: 100%;
   user-select: none;
+  padding: 20px;
   overflow: hidden;
   overflow-y: auto;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,

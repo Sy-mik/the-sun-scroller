@@ -12,9 +12,6 @@ export default function SolarSystemGraph({
 }) {
   // establish variables
   const ref = useRef();
-  const scrollToRef = (ref) =>
-    window.scrollTo({ behavior: "smooth", top: ref.current.offsetTop - 300 });
-
   const [drawRealSizeGraph, setDrawRealSizeGraph] = useState(false);
 
   const getOffset = () => {
@@ -24,11 +21,11 @@ export default function SolarSystemGraph({
   };
 
   useEffect(() => {
-    const comaprisonVal = isMobile ? windowWidth : windowHeight;
-    if (scrollPosition - getOffset() < 2 * comaprisonVal && drawRealSizeGraph) {
+    const heightDifference = isMobile ? windowHeight : 2 * windowHeight;
+    if (scrollPosition - getOffset() < heightDifference && drawRealSizeGraph) {
       setDrawRealSizeGraph(false);
     } else if (
-      scrollPosition - getOffset() >= 2 * comaprisonVal &&
+      scrollPosition - getOffset() >= heightDifference &&
       !drawRealSizeGraph
     ) {
       setDrawRealSizeGraph(true);
