@@ -4,6 +4,8 @@ import SpinningSunContainer from "./spinningSun/SpinningSunContainer";
 import IntroAndGraphContainer from "./beggining/IntroAndGraphContainer";
 import "./the-sun.css";
 import LearnMoreChatContainer from "./learn-more-chat/LearnMoreChatContainer";
+import { isMobile } from "react-device-detect";
+
 export default function TheSunContainer() {
   const [scrollPosition, setSrollPosition] = useState(0);
   const [width, height] = useWindowSize();
@@ -57,11 +59,13 @@ export default function TheSunContainer() {
 
       <h1> Solar flares</h1>
 
-      <SpinningSunContainer
-        innerWidth={width}
-        innerHeight={height}
-        scrollPosition={scrollPosition}
-      ></SpinningSunContainer>
+      {isMobile ? null : (
+        <SpinningSunContainer
+          innerWidth={width}
+          innerHeight={height}
+          scrollPosition={scrollPosition}
+        ></SpinningSunContainer>
+      )}
       <LearnMoreChatContainer></LearnMoreChatContainer>
     </div>
   );
