@@ -22,7 +22,7 @@ export default function StartingImageComponent({
       }}
     >
       <img
-        alt="image of the sun"
+        alt="the sun"
         style={{
           zIndex: 99,
           maxWidth: innerHeight, // '100%',

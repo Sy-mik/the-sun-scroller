@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ismobile } from "react-device-detect";
 import * as d3 from "d3";
+
 export default function SpinningSunComponent({
   scrollPosition,
   innerHeight,
